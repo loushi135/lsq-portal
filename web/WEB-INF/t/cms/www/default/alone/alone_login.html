@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>管理页</title>
+<link href="${base}/res/common/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="${base}/res/common/css/jquery.jslides.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="${base}/res/portal/css/admin.css" rel="stylesheet" type="text/css"/>
+<link href="${base}/res/common/css/theme.css" rel="stylesheet" type="text/css"/>
+<link href="${base}/res/common/css/jquery.validate.css" rel="stylesheet" type="text/css"/>
+<link href="${base}/res/common/css/jquery.treeview.css" rel="stylesheet" type="text/css"/>
+<link href="${base}/res/common/css/jquery.ui.css" rel="stylesheet" type="text/css"/>
+
+
+<script src="${base}/thirdparty/ckeditor/ckeditor.js" type="text/javascript"></script>
+<script src="${base}/thirdparty/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script src="${base}/res/common/js/jquery.js" type="text/javascript"></script>
+<script src="${base}/res/common/js/jquery.ext.js" type="text/javascript"></script>
+<script src="${base}/res/common/js/jquery-ui.js" type="text/javascript"></script>
+<script src="${base}/res/common/js/portal.js" type="text/javascript"></script>
+<script src="${base}/res/portal/js/admin.js" type="text/javascript"></script>
+<script src="${base}/res/common/js/jquery.jslides.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+if(top!=this) {
+	top.location=this.location;
+}
+$(function() {
+	$("#username").focus();
+	$("#jvForm").validate();
+});
+</script>
+</head>
+<body>
+<!--<div class="top_w">-->
+    <!--<div class="top"><span> <A href="#"><img src="${base}/res/common/images/EnglishL.gif"/></A>| <a href="#">网站地图</a> | <a-->
+            <!--href="#">加入收藏</a> | <a href="#">设为首页</a> | <a href="#">RSS订阅</a> </span>2015年07月01日 星期三-->
+    <!--</div>-->
+<!--</div>-->
+<#include "../include/header.html"/>
+<div class="bg">
+    <#include "../include/head_image.html"/>
+    <!--<div class="nav">-->
+        <!--<ul class="nav_ul">-->
+            <!--<li class="inde_a"><A href="#" >首页</A></li>-->
+            <!--<li><A href="#"  >机关要闻</A></li>-->
+            <!--<li><A href="#" >基层新闻</A></li>-->
+            <!--<li><A href="#" >通知通报</A></li>-->
+            <!--<li><A href="#">军事业务</A></li>-->
+            <!--<li><A href="#">政治工作</A></li>-->
+            <!--<li><A href="#">后勤保障</A></li>-->
+            <!--<li><A href="#" >主题教育</A></li>-->
+            <!--<li><A href="#" >部队管理</A></li>-->
+            <!--<li><A href="#">安全工作</A></li>-->
+            <!--<li><A href="#" class="current ">网站管理</A></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <#include "../include/navi.html"/>
+    <div class="ma_main">
+        <form id="jvForm" action="admin/portal/login.do" method="post">
+            <#if returnUrl??><input type="hidden" name="returnUrl" value="${returnUrl}"/></#if>
+            <#if processUrl??><input type="hidden" name="processUrl" value="${processUrl}"/></#if>
+            <div class="wzgl">
+                <div class="login">
+                    <h1 class="yh_tit">用户登录</h1>
+                    <div>
+                        <#if error??>
+                            <ul>
+                                <#if error=="org.apache.shiro.authc.IncorrectCredentialsException">
+                                    <li><@s.m "error.invalidPassword"/></li>
+                                    <#elseif error=="org.apache.shiro.authc.UnknownAccountException">
+                                        <li><@s.m "error.usernameNotExist"/></li>
+                                        <#elseif error=="com.portal.common.security.CaptchaErrorException">
+                                            <li><@s.m "error.invalidCaptcha"/></li>
+                                            <#elseif error=="com.portal.common.security.DisabledException">
+                                                <li><@s.m "error.userDisabled"/></li>
+                                </#if>
+                            </ul>
+                        </#if>
+                    </div>
+                    <input type="text" class="te_xt" id="username" name="username" vld="{required:true}" maxlength="100"
+                           value="用户名" onfocus="if (value =='用户名'){value =''}" onblur="if (value ==''){value='用户名'}" />
+                    <input type="text" class="te_xt" name="password" type="password" id="password" maxlength="32" vld="{required:true}"
+                           value="密码" onfocus="if (value =='密码'){value =''}" onblur="if (value ==''){value='密码'}" />
+                    <input type="submit" class="sub" name="submit" value="登录" />
+                    <a href="#" class="wjmm">忘记密码？</a>
+                </div>
+            </div>
+        </form>
+        <#include "../include/footer.html"/>
+
+    </div>
+</div>
+<#include "../common/alert_message.html"/>
+</body>
+</html>

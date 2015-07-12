@@ -1,0 +1,42 @@
+<div id="menu" class="nav">
+    <ul class="nav_ul">
+        [@cms_channel_list]
+        <li class="inde_a">
+        <!--<a href="${site.url!}" target="_self" [#if !channel??]class="current"[/#if]><span>首 页</span></a>-->
+        <a href="" target="_self" [#if !channel??]class="current"[/#if]><span>首 页</span></a>
+        </li>
+        [#list tag_list as c]
+        [#if c_index<5]
+        <li>
+        <a href="${c.url}"  target="_self" [#if channel??&&channel.id==c.id] class="current" [/#if]><span>${c.name}</span></a>
+        </li>
+        [/#if]
+        [/#list]
+        [/@cms_channel_list]
+        <li><a href="${base}/wldc/index.jhtml" target="blank">网络调查</a></li>
+        <li><a href="${base}/job/index.jhtml" target="blank">招聘</a></li>
+        <li>
+        <a href="${base}/guestbook.jspx" target="blank">留言版</a>
+        </li>
+        <li style="border-right:0;">
+        <a href="http://bbs.portal.com" target="blank">论坛</a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="nav">
+    <ul class="nav_ul">
+        <li class="inde_a"><A href="#" >首页</A></li>
+        <li><A href="#"  >机关要闻</A></li>
+        <li><A href="#" >基层新闻</A></li>
+        <li><A href="#" >通知通报</A></li>
+        <li><A href="#">军事业务</A></li>
+        <li><A href="#">政治工作</A></li>
+        <li><A href="#">后勤保障</A></li>
+        <li><A href="#" >主题教育</A></li>
+        <li><A href="#" >部队管理</A></li>
+        <li><A href="#">安全工作</A></li>
+        <li><A href="#" class="current ">网站管理</A></li>
+    </ul>
+</div>

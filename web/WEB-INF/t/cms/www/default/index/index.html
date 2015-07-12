@@ -1,0 +1,426 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页 - ${site.name} - Powered by PORTAL</title>
+<meta http-equiv="keywords" content="${site.keywords!}"/>
+<meta http-equiv="description" content="${site.description!}"/>
+<head>
+    <!--[if lt IE 9]>
+    <script src="${resSys}/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--<link href="/${res}/css/html5.css" rel="stylesheet" type="text/css"/>-->
+    <script src="/${res}/js/indexshow.js" type="text/javascript"></script>
+    <script src="/${res}/js/imgFlip.js" type="text/javascript"></script>
+
+    <!--<link href="${resSys}/front.css" rel="stylesheet" type="text/css"/>-->
+    <link href="${resSys}/jqueryUI/jquery.ui.css" rel="stylesheet" type="text/css"/>
+    <script src="${resSys}/jquery.js" type="text/javascript"></script>
+    <script src="${resSys}/jqueryUI/jquery-ui.js" type="text/javascript"></script>
+    <script src="${resSys}/front.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            Cms.siteFlow("${base}", location.href, document.referrer);
+            $.cookie("_site_id_cookie","${site.id!}",{path: '${base}' });
+        });
+    </script>
+    <link href="${base}/res/common/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${base}/res/common/css/jquery.jslides.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="${base}/res/common/js/jquery.jslides.js" type="text/javascript"></script>
+    <script type="text/javascript" src="${base}/res/common/js/jquery.SuperSlide.js"></script>
+    <script type="text/javascript" src="${base}/res/common/js/floatAd.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //调用漂浮插件
+//            $("body").floatAd({
+//                imgSrc : '${base}/res/common/images/img_k1.jpg',
+//                url:''
+//            });
+        })
+    </script>
+</head>
+<body>
+[#include "../include/header.html"/]
+<div class="bg">
+[#include "../include/head_image.html"/]
+[#include "../include/navi.html"/]
+<div class="index_main"><!-- 焦点图 开始 -->
+<div class="focusBox" >
+    <ul class="pic" >
+        <li><a href="#" target="_blank"><img src="${base}/res/common/images/1.jpg"></a></li>
+        <li><a href="#" target="_blank"><img src="${base}/res/common/images/2.jpg"></a></li>
+        <li><a href="#" target="_blank"><img src="${base}/res/common/images/1.jpg"></a></li>
+    </ul>
+    <div class="txt-bg"></div>
+    <div class="txt">
+        <ul>
+            <li style="bottom: -36px;"><a href="#">我们热爱当兵1</a></li>
+            <li style="bottom: -36px;"><a href="#">我们热爱当兵2</a></li>
+            <li style="bottom: 0px;"><a href="#">我们热爱当兵3</a></li>
+        </ul>
+    </div>
+    <ul class="num">
+        <li class=" "><a>  </a><span></span></li>
+        <li class=" "><a>  </a><span></span></li>
+        <li class="on"><a>  </a><span></span></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    jQuery(".focusBox").slide({ titCell:".num li", mainCell:".pic",effect:"fold", autoPlay:true,trigger:"click",startFun:function(i){jQuery(".focusBox .txt li").eq(i).animate({"bottom":0}).siblings().animate({"bottom":-36});}});
+</script>
+<!-- 焦点图 开始 -->
+<div class="jg_n zgyw_p">
+    <div class="title"><a href="#">+MORE</A><span>机关要闻</span></div>
+    <ul class="jg_ul zgyw_ul ">
+        <div class="div_lt">
+            <div class="new_op new_lt"> <img src="${base}/res/common/images/new_img.jpg" />
+                <div class="fo_ot">
+                    <h1><a href="#">主题教育</a></h1>
+                    月28日，在意大利海军际赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+                <div class="clear"></div>
+            </div>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        </div>
+        <div class="div_lt">
+            <div class="new_op new_lt"> <img src="${base}/res/common/images/new_img.jpg" />
+                <div class="fo_ot">
+                    <h1><a href="#">主题教育</a></h1>
+                    月28日，在意大利海军赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+                <div class="clear"></div>
+            </div>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        </div>
+    </ul>
+    <div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div class="sm_banner"><img src="${base}/res/common/images/sm_banner.gif" /></div>
+<div class="jg_n zzgz ">
+    <div class="title"><a href="#">+MORE</A><span>通知通报</span></div>
+    <ul class="jg_ul zz_ul bdgl slb">
+        <div class="new_op new_lt"> <img src="${base}/res/common/images/new_img.jpg" />
+            <div class="fo_ot">
+                <h1><a href="#">主题教育</a></h1>
+                月28日，在意大利海军学院举办的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+            <div class="clear"></div>
+        </div>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+    </ul>
+</div>
+<div class="jg_n ">
+    <div class="title"><a href="#">+MORE</A><span>基层新闻</span></div>
+    <ul class="jg_ul zz_ul bdgl slb">
+        <div class="new_op new_lt"> <img src="${base}/res/common/images/new_img.jpg" />
+            <div class="fo_ot">
+                <h1><a href="#">主题教育</a></h1>
+                月28日海军日海军国际帆国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+            <div class="clear"></div>
+        </div>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+    </ul>
+</div>
+<div class="jg_n jrzb">
+    <div class="title"><span>今日值班</span></div>
+    <ul class="jg_ul jrzb_p">
+        <span class="people_lt">带班领导：<br />
+        副班长：<br />
+        主班：<br />
+        副班：<br />
+        </span> <span class="people_rt">杨小鹏<br />
+        杨刚<br />
+        赵重阳<br />
+        李明明、张帅帅<br />
+        </span>
+        <div class="clear"></div>
+    </ul>
+</div>
+<div class="jg_n zzgz">
+    <div class="title"><a href="#">+MORE</a><span>军事业务</span></div>
+    <ul class="jg_ul zz_ul">
+        <div class="new_op"> <img src="${base}/res/common/images/new_img.jpg" />
+            <div class="fo_ot">
+                <h1><a href="#">我的军旅起点</a></h1>
+                月28日，在意大利海军学院举办的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+            <div class="clear"></div>
+        </div>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+    </ul>
+</div>
+<div class="jg_n ">
+    <div class="title"><a href="#">+MORE</a><span>政治工作</span></div>
+    <ul class="jg_ul zz_ul">
+        <div class="new_op"> <img src="${base}/res/common/images/new_img.jpg" />
+            <div class="fo_ot">
+                <h1><a href="#">我的军旅起点</a></h1>
+                学院举办的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+            <div class="clear"></div>
+        </div>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+    </ul>
+</div>
+<div class="jg_n tztg">
+    <div class="title"><span>天气日报</span></div>
+    <ul class="jg_ul  tian">
+        <img src="${base}/res/common/images/sun.jpg" class="sun" />
+        <p class="tqyb"><span class="red">天气预报：</span>海口今天白云到夜间，多云，东南风2级别27到35度。背部湾、琼州海峡、本岛以男，多云，偏南风5级，浪高1.5-2.0米，西沙群岛附件海面，多云，偏南分5级，阵分6级，浪高1.5-2.0米</p>
+    </ul>
+</div>
+<div class="clear"></div>
+
+<!-- 滚动 开始 -->
+<div class="hl_main5_contents"><img src="${base}/res/common/images/fc.jpg" class="sunw" />
+    <div class="hl_scrool_leftbtn"></div>
+    <div class="hl_scrool_rightbtn"></div>
+    <div class="hl_main5_content1s">
+
+        <ul>
+            <li><a href="" title=""><img src="${base}/res/common/images/img01.jpg" /> 图海图片1</a></li>
+            <li><a href="" title=""><img src="${base}/res/common/images/img01.jpg" /> 图海图片1</a></li>
+            <li><a href="" title=""><img src="${base}/res/common/images/img01.jpg" /> 图海图片1</a></li>
+            <li><a href="" title=""><img src="${base}/res/common/images/img01.jpg" /> 图海图片1</a></li>
+            <li><a href="" title=""><img src="${base}/res/common/images/img01.jpg" /> 图海图片1</a></li>
+            <li><a href="" title=""><img src="${base}/res/common/images/img01.jpg" /> 图海图片1</a></li>
+            <li><a href="" title=""><img src="${base}/res/common/images/img01.jpg" /> 图海图片1</a></li>
+            <li><a href="" title=""><img src="${base}/res/common/images/img01.jpg" /> 图海图片1</a></li>
+            <li><a href="" title=""><img src="${base}/res/common/images/img01.jpg" /> 图海图片1</a></li>
+            <li><a href="" title=""><img src="${base}/res/common/images/img01.jpg" /> 图海图片1</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+
+    var flag = "left";
+
+    function DY_scroll(wraper,prev,next,img,speed,or){
+        var wraper = $(wraper);
+        var prev = $(prev);
+        var next = $(next);
+        var img = $(img).find('ul');
+        var w = img.find('li').outerWidth(true);
+        var s = speed;
+        next.click(function(){
+            img.animate({'margin-left':-w},function(){
+                img.find('li').eq(0).appendTo(img);
+                img.css({'margin-left':0});
+            });
+            flag = "left";
+        });
+        prev.click(function(){
+            img.find('li:last').prependTo(img);
+            img.css({'margin-left':-w});
+            img.animate({'margin-left':0});
+            flag = "right";
+        });
+        if (or == true){
+            ad = setInterval(function() { flag == "left" ? next.click() : prev.click()},s*1000);
+            wraper.hover(function(){clearInterval(ad);},function(){ad = setInterval(function() {flag == "left" ? next.click() : prev.click()},s*1000);});
+        }
+    }
+    DY_scroll('.hl_main5_contents','.hl_scrool_leftbtn','.hl_scrool_rightbtn','.hl_main5_content1s',3,true);// true为自动播放，不加此参数或false就默认不自动
+</script>
+<!-- 滚动 开始 -->
+<div class="clear"></div>
+<div class="mian_lt">
+    <div class="jg_n zzgz ">
+        <div class="title"><a href="#">+MORE</a><span>后勤保障</span></div>
+        <ul class="jg_ul zz_ul bdgl">
+            <div class="new_op"> <img src="${base}/res/common/images/new_img.jpg" />
+                <div class="fo_ot">
+                    <h1><a href="#">主题教育</a></h1>
+                    月28日，在意大利海军学院举办的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+                <div class="clear"></div>
+            </div>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        </ul>
+    </div>
+    <div class="jg_n ">
+        <div class="title"><a href="#">+MORE</a><span>主题教育</span></div>
+        <ul class="jg_ul zz_ul bdgl">
+            <div class="new_op"> <img src="${base}/res/common/images/new_img.jpg" />
+                <div class="fo_ot">
+                    <h1><a href="#">主题教育</a></h1>
+                    月28日，在意大的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+                <div class="clear"></div>
+            </div>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        </ul>
+    </div>
+    <div class="jg_n zzgz ">
+        <div class="title"><a href="#">+MORE</a><span>部队管理</span></div>
+        <ul class="jg_ul zz_ul bdgl">
+            <div class="new_op"> <img src="${base}/res/common/images/new_img.jpg" />
+                <div class="fo_ot">
+                    <h1><a href="#">主题教育</a></h1>
+                    月28日，在意大利海军学院举办的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+                <div class="clear"></div>
+            </div>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        </ul>
+    </div>
+    <div class="jg_n ">
+        <div class="title"><a href="#">+MORE</a><span>安全工作</span></div>
+        <ul class="jg_ul zz_ul bdgl">
+            <div class="new_op"> <img src="${base}/res/common/images/new_img.jpg" />
+                <div class="fo_ot">
+                    <h1><a href="#">主题教育</a></h1>
+                    月28日，在意大的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+                <div class="clear"></div>
+            </div>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        </ul>
+    </div>
+</div>
+<div class="mian_rt">
+    <div class="img_lk"> <a href="#"> <img src="${base}/res/common/images/001.jpg" /></a> <a href="#"> <img src="${base}/res/common/images/002.jpg" /></a> <a href="#"> <img src="${base}/res/common/images/003.jpg" /></a></div>
+    <div class="jg_n tztg link">
+        <div class="title"><span>应用系统</span></div>
+        <ul class="xtimg">
+            <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a>
+        </ul>
+    </div>
+</div>
+<div class="clear"></div>
+<!-- 代码 开始 -->
+
+<div class="banner">
+    <div id="full-screen-slider">
+        <ul id="slides">
+            <li style="background:url('${base}/res/common/images/banner1.jpg') no-repeat center top"></li>
+            <li style="background:url('${base}/res/common/images/banner2.jpg') no-repeat center top"></li>
+        </ul>
+    </div>
+</div>
+<!-- 代码 结束 -->
+
+<div class="clear"></div>
+<div class="jg_n zzgz ">
+    <div class="title"><a href="#">MORE</a><span>后勤新闻</span></div>
+    <ul class="jg_ul zz_ul">
+        <div class="new_op"> <img src="${base}/res/common/images/new_img.jpg" />
+            <div class="fo_ot">
+                <h1><a href="#">主题教育</a></h1>
+                月28日，在意大利海军学院举办的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+            <div class="clear"></div>
+        </div>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+    </ul>
+</div>
+<div class="jg_n ">
+    <div class="title"><a href="#">MORE</a><span>综合信息</span></div>
+    <ul class="jg_ul zz_ul">
+        <div class="new_op"> <img src="${base}/res/common/images/new_img.jpg" />
+            <div class="fo_ot">
+                <h1><a href="#">主题教育</a></h1>
+                月28日，在意大的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
+            <div class="clear"></div>
+        </div>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+    </ul>
+</div>
+<div class="jg_n tztg ">
+    <div class="title"><span>流量统计</span></div>
+    <ul class="jg_ul lltj zz_uxlw">
+        <p> 今日访问：<span class="red">278次 </span><br />
+            昨日访问：<span class="red">1247次 </span><br />
+            本月访问：<span class="red">986次 </span><br />
+            访  问  量：<span class="red">223次 </span><br />
+        </p>
+    </ul>
+</div>
+<div class="clear"></div>
+
+<div class="ssxh">
+    <img src="${base}/res/common/images/r1.jpg" class="rrt" />
+    <p>
+        <input value="站内搜索" onfocus="if (value =='点击文字消失'){value =''}" onblur="if (value ==''){value='站内搜索'}" class="wzdj wzdj2" />
+        <input type="submit" class="xds" value="搜索" />
+    </p>
+</div>
+
+<div class="ssxh">
+    <img src="${base}/res/common/images/r2.jpg" class="rrt" />
+    <p>
+        <input value="关键字搜索" onfocus="if (value =='关键字搜索'){value =''}" onblur="if (value ==''){value='关键字搜索'}" class="wzdj wzdj2" />
+        <input type="submit" class="xds" value="搜索" />
+    </p>
+</div>
+
+<div class="ssxh cfdv">
+    <img src="${base}/res/common/images/r3.jpg" class="rrt" />
+    <p>
+        <input value="栏目搜索" onfocus="if (value =='栏目搜索'){value =''}" onblur="if (value ==''){value='栏目搜索'}" class="wzdj wzdj2" />
+        <input type="submit" class="xds" value="搜索" />
+    </p>
+</div>
+<div class="clear"></div>
+<div class="map_link">
+    <div class="title"><span>友情链接</span></div>
+    <ul class="wzlink_ul">
+        <select class="link_op">
+            <option>全国公安站点</option>
+            <option>全国公安站点1</option>
+        </select>
+        <select class="link_op">
+            <option>全省边防站点</option>
+            <option>全国公安站点1</option>
+        </select>
+        <select class="link_op">
+            <option>精彩推荐</option>
+            <option>全国公安站点1</option>
+        </select>
+        <select class="link_op">
+            <option>全国边防站点</option>
+            <option>全国公安站点1</option>
+        </select>
+        <select class="link_op">
+            <option>全国基层站点</option>
+            <option>全国公安站点1</option>
+        </select>
+    </ul>
+</div>
+
+[#include "../include/footer.html"/]
+</div>
+</div>
+</body>
+</html>

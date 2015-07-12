@@ -1,0 +1,14 @@
+<div id="menu" class="nav">
+    <ul class="nav_ul">
+        [@cms_channel_list]
+        <li class="inde_a">
+        <a href="${site.url!}" target="_self" [#if !channel??]class="current"[/#if]>首 页</a>
+        </li>
+        [#list tag_list as c]
+        <li>
+        <a href="${c.url}"  target="_self" [#if channel??&&channel.id==c.id] class="current" [/#if]>${c.name}</a>
+        </li>
+        [/#list]
+        [/@cms_channel_list]
+    </ul>
+</div>

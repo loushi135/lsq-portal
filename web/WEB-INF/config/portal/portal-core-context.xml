@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd"
+	default-lazy-init="true">
+	<!--HttpSession-->
+	<bean id="sessionProvider" class="com.portal.common.web.session.HttpSessionProvider"/>
+	<!--缓存Session
+		<bean id="sessionProvider" class="com.portal.common.web.session.CacheSessionProvider">
+			<property name="sessionCache" ref="sessionCache"/>
+			<property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+		</bean>
+		-->
+	<!--Memcached缓存
+		<bean id="sessionCache" class="com.portal.common.web.session.cache.MemcachedDangaCache">
+			<property name="servers">
+				<list>
+					<value>127.0.0.1:11211</value>
+				</list>
+			</property>
+			<property name="weights">
+				<list>
+					<value>1</value>
+				</list>
+			</property>
+		</bean>
+		-->
+	<!--Ehcache缓存
+		<bean id="sessionCache" class="com.portal.common.web.session.cache.EhcacheSessionCache">
+			<property name="cache" ref="ehSessionCache"/>
+		</bean>
+		-->
+	<!--SessionId生成器
+		<bean id="sessionIdGenerator" class="com.portal.common.web.session.id.JdkUUIDGenerator"/>
+		-->
+	<!--图片处理-->
+	<bean id="imageScale" class="com.portal.common.image.ImageScaleImpl" init-method="init">
+		<property name="tryMagick" value="true"/>
+	</bean>
+	<!--密码加密器-->
+	<bean id="pwdEncoder" class="com.portal.common.security.encoder.Md5PwdEncoder"/>
+		
+	<!--执行时间标签-->
+	<bean id="uuid" class="com.portal.common.web.freemarker.UUIDDirective"/>
+	<bean id="process_time" class="com.portal.common.web.freemarker.ProcessTimeDirective"/>
+	<bean id="text_cut" class="com.portal.common.web.freemarker.TextCutDirective"/>
+	<bean id="html_cut" class="com.portal.common.web.freemarker.HtmlCutDirective"/>
+	
+	<bean id="realPathResolver" class="com.portal.common.web.springmvc.ServletContextRealPathResolver"/>
+	<bean id="fileRepository" class="com.portal.common.upload.FileRepository"/>
+	<!--文件模板-->
+	<bean id="tplManager" class="com.portal.core.tpl.FileTplManagerImpl"/>
+	<!--数据库模板
+		<bean id="dbTplDao" class="com.portal.core.dao.impl.DbTplDaoImpl"/>
+		<bean id="tplManager" class="com.portal.core.manager.impl.DbTplMngImpl"/>
+		-->
+
+	<bean id="ipSeeker" class="com.portal.common.ipseek.IPSeekerImpl" init-method="init">
+		<property name="dir" value="/WEB-INF/ipseek"/>
+		<property name="filename" value="QQWry.Dat"/>
+	</bean>
+	<bean id="authenticationDao" class="com.portal.core.dao.impl.AuthenticationDaoImpl"/>
+	<bean id="dbFileDao" class="com.portal.core.dao.impl.DbFileDaoImpl"/>
+	<bean id="unifiedUserDao" class="com.portal.core.dao.impl.UnifiedUserDaoImpl"/>
+	<bean id="ftpDao" class="com.portal.core.dao.impl.FtpDaoImpl"/>
+	<bean id="configDao" class="com.portal.core.dao.impl.ConfigDaoImpl"/>
+	<bean id="configItemDao" class="com.portal.core.dao.impl.CmsConfigItemDaoImpl"/>
+	
+	<bean id="cmsSiteDao" class="com.portal.core.dao.impl.CmsSiteDaoImpl"/>
+	<bean id="cmsConfigDao" class="com.portal.core.dao.impl.CmsConfigDaoImpl"/>
+	<bean id="cmsUserDao" class="com.portal.core.dao.impl.CmsUserDaoImpl"/>
+	<bean id="cmsUserExtDao" class="com.portal.core.dao.impl.CmsUserExtDaoImpl"/>
+	<bean id="cmsUserSiteDao" class="com.portal.core.dao.impl.CmsUserSiteDaoImpl"/>
+	<bean id="cmsGroupDao" class="com.portal.core.dao.impl.CmsGroupDaoImpl"/>
+	<bean id="cmsRoleDao" class="com.portal.core.dao.impl.CmsRoleDaoImpl"/>
+	<bean id="cmsLogDao" class="com.portal.core.dao.impl.CmsLogDaoImpl"/>
+	<bean id="cmsDictionaryDao" class="com.portal.core.dao.impl.CmsDictionaryDaoImpl"/>
+	<bean id="cmsSiteCompanyDao" class="com.portal.core.dao.impl.CmsSiteCompanyDaoImpl"/>
+	<bean id="cmsUserResumeDao" class="com.portal.core.dao.impl.CmsUserResumeDaoImpl"/>
+
+	<bean id="authenticationMng" class="com.portal.core.manager.impl.AuthenticationMngImpl"/>
+	<bean id="dbFileMng" class="com.portal.core.manager.impl.DbFileMngImpl"/>
+	<bean id="unifiedUserMng" class="com.portal.core.manager.impl.UnifiedUserMngImpl"/>
+	<bean id="ftpMng" class="com.portal.core.manager.impl.FtpMngImpl"/>
+	<bean id="configMng" class="com.portal.core.manager.impl.ConfigMngImpl"/>
+	<bean id="configItemMng" class="com.portal.core.manager.impl.CmsConfigItemMngImpl"/>
+	
+	<bean id="cmsSiteMng" class="com.portal.core.manager.impl.CmsSiteMngImpl"/>
+	<bean id="cmsConfigMng" class="com.portal.core.manager.impl.CmsConfigMngImpl"/>
+	<bean id="cmsUserMng" class="com.portal.core.manager.impl.CmsUserMngImpl"/>
+	<bean id="cmsUserExtMng" class="com.portal.core.manager.impl.CmsUserExtMngImpl"/>
+	<bean id="cmsUserSiteMng" class="com.portal.core.manager.impl.CmsUserSiteMngImpl"/>
+	<bean id="cmsGroupMng" class="com.portal.core.manager.impl.CmsGroupMngImpl"/>
+	<bean id="cmsRoleMng" class="com.portal.core.manager.impl.CmsRoleMngImpl"/>
+	<bean id="cmsLogMng" class="com.portal.core.manager.impl.CmsLogMngImpl"/>
+	<bean id="cmsDictionaryMng" class="com.portal.core.manager.impl.CmsDictionaryMngImpl"/>
+	<bean id="cmsSiteCompanyMng" class="com.portal.core.manager.impl.CmsSiteCompanyMngImpl"/>
+	<bean id="cmsUserResumeMng" class="com.portal.core.manager.impl.CmsUserResumeMngImpl"/>
+	
+</beans>

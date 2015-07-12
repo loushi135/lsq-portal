@@ -1,0 +1,903 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页 - PORTAL开发站 - Powered by PORTAL</title>
+<meta http-equiv="keywords" content=""/>
+<meta http-equiv="description" content=""/>
+<head>
+<!--[if lt IE 9]>
+<script src="/v6f/r/cms/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link href="/v6f/r/cms/www/default/css/html5.css" rel="stylesheet" type="text/css"/>
+<script src="/v6f/r/cms/www/default/js/indexshow.js" type="text/javascript"></script>
+<script src="/v6f/r/cms/www/default/js/imgFlip.js" type="text/javascript"></script>
+
+<link href="/v6f/r/cms/front.css" rel="stylesheet" type="text/css"/>
+<link href="/v6f/r/cms/jqueryUI/jquery.ui.css" rel="stylesheet" type="text/css"/>
+<script src="/v6f/r/cms/jquery.js" type="text/javascript"></script>
+<script src="/v6f/r/cms/jqueryUI/jquery-ui.js" type="text/javascript"></script>
+<script src="/v6f/r/cms/front.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	Cms.siteFlow("/v6f", location.href, document.referrer);
+	$.cookie("_site_id_cookie","1",{path: '/v6f' });
+});
+</script>
+
+</head>
+<body>
+<div class="container">
+<div class="theTop">
+	<div class="theTopLeft">
+    <div id="loginCsiDiv"></div>
+<script type="text/javascript">
+$(function(){
+	Cms.loginCsi("/v6f","loginCsiDiv",{"returnUrl":"http://localhost:8080/v6f/"});
+});
+</script>
+    </div>
+    <div class="theTopRight">
+    <a href="/v6f/tag.jspx" target="_blank">Tags</a>&nbsp;|&nbsp;<a href="/v6f/guestbook.jspx" target="_blank">留言板</a>&nbsp;|&nbsp;<a href="/v6f/rss.jspx" target="_blank">RSS订阅</a>&nbsp;|&nbsp;<a onclick="SetHome(window.location)"href="javascript:void(0)">设为首页</a>&nbsp;|&nbsp;<a onclick="AddFavorite(window.location,document.title)"href="javascript:void(0)">加入收藏</a>&nbsp;
+    <A name="gb2big5" id="gb2big5">繁體中文</A>
+	<Script Language=Javascript Src="/v6f/r/cms/gb2big5.js"></Script>
+    </div>
+</div>
+<script type="text/javascript" language="javascript">
+   //加入收藏
+       function AddFavorite(sURL, sTitle) {
+           sURL =encodeURI(sURL); 
+       try{   
+          window.external.addFavorite(sURL, sTitle);   
+       }catch(e) {   
+          try{   
+              window.sidebar.addPanel(sTitle, sURL, "");   
+           }catch (e){   
+              alert("您的浏览器不支持自动加入收藏功能，请使用Ctrl+D进行添加，或手动在浏览器里进行设置！");
+          }   
+       }
+   }
+   
+   //设为首页
+   function SetHome(url){
+       if (document.all) {
+          document.body.style.behavior='url(#default#homepage)';
+             document.body.setHomePage(url);
+       }else{
+           alert("您的浏览器不支持自动设置页面为首页功能，请您手动在浏览器里设置该页面为首页！");
+       }
+   }
+</script><script>
+//delay延迟时间（毫秒）
+$(function() {
+	$("input[name=q]").autocomplete({
+		 source: "/v6f/search/v_ajax_list.jspx",
+		 minLength: 2,
+		 max:5,
+		 delay:100,
+		 autoFocus: true,
+		 select: function(e, ui) {
+			 $("input[name='q']").val(ui.item.value);
+			 $("#searchForm").submit();
+		 },
+		 success: function( data ) {
+			    response( $.map( data.items, function( item ) {
+			        return {
+			         label: '<B>' + item.id + '</B><br>' + item.label,
+			         value: item.id
+			        }
+			       }));
+		}
+	});
+});
+function qkeypress(){
+	var q=$("input[name=q]");
+	if(q.val().trim()!=""){
+		$("input[name=q]").autocomplete("enable");
+	}else{
+		$("input[name=q]").autocomplete("disable");
+	}
+}
+</script>
+<div class="pageTitle">
+    <!-- LOGO_begin -->
+    <div class="webLogo">
+        <img src="../../v6f/r/cms/www/default/img/index/webLogo.gif" />
+    </div>
+    <!-- LOGO_end -->
+    <!-- 搜索_begin -->
+    <div class="searchCon">
+        <form action="/v6f/search.jspx" target="_blank" id="searchForm">
+        <div class="ui-widget">
+            <div class="searchBg">
+            	<input name="q" value="请输入关键词" type="text" onfocus="if(this.value=='请输入关键词')this.value=''"  onkeypress="qkeypress()" onblur="if(this.value=='')this.value='请输入关键词'"  maxlength="50" autocomplete="off" / style="border:0;width:98%;">
+            </div>
+		</div>
+            <input type="submit" class="searchMenu" value=""/ >
+        </form>
+    </div>
+    <!-- 搜索_end -->
+</div>
+<div class="clear"></div><div id="menu" class="page box relative">
+    <dl id="topmenu">  
+                <dt class="menu_first">
+        <a href="http://localhost:8080/v6f/" target="_self" class="selected"><span>首 页</span></a>
+        </dt>
+        <dt>
+        <a href="http://localhost:8080/v6f/news/index.jhtml"  target="_self" ><span>新闻</span></a>
+        </dt>
+        <dt>
+        <a href="http://localhost:8080/v6f/picture/index.jhtml"  target="_self" ><span>图库</span></a>
+        </dt>
+        <dt>
+        <a href="http://localhost:8080/v6f/veido/index.jhtml"  target="_self" ><span>视频</span></a>
+        </dt>
+        <dt>
+        <a href="http://localhost:8080/v6f/download/index.jhtml"  target="_self" ><span>下载</span></a>
+        </dt>
+        <dt>
+        <a href="http://localhost:8080/v6f/job/index.jhtml"  target="_self" ><span>招聘</span></a>
+        </dt>
+        <dt><a href="/v6f/wldc/index.jhtml" target="blank">网络调查</a></dt>
+        <dt><a href="/v6f/job/index.jhtml" target="blank">招聘</a></dt>
+        <dt>
+        <a href="/v6f/guestbook.jspx" target="blank">留言版</a>
+        </dt>
+        <dt style="border-right:0;">
+        <a href="http://bbs.portal.com" target="blank">论坛</a>
+        </dt>
+    </dl>
+</div>
+<div class="clear"></div>    <div class="main">
+    	<div class="w670">
+        	<div class="hundred100">
+                <div class="w310 mt10">
+                    <!-- 焦点图代码宽310_begin -->
+                    <div class="comiis_wrapad" id="slideContainer">
+                        <div id="frameHlicAe" class="frame cl">
+                            <div class="temp"></div>
+                            <div class="block">
+                                <div class="cl">
+                                    <ul class="slideshow" id="slidesImgs">
+                                    <li>
+                                        <a href="http://localhost:8080/v6f/gjxw/536.jhtml" target="_blank">
+                                        <img src="/u/cms/www/201309/121547582f5t.jpg" alt="章子怡献唱公益节目讲述梦想" width="100%" />
+                                        </a>
+                                        <span class="title">
+章子怡献唱公益节目讲述梦想                                        </span>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/v6f/gjxw/511.jhtml" target="_blank">
+                                        <img src="/u/cms/www/201309/10104531ukj5.jpg" alt="毛泽东逝世37周年 亲属及工作人员现身纪念" width="100%" />
+                                        </a>
+                                        <span class="title">
+毛泽东逝世37周年 亲属及工作人员现身                                        </span>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/v6f/gnxw/510.jhtml" target="_blank">
+                                        <img src="/u/cms/www/201309/10103806oifr.jpg" alt="官方称翻越澳门大学新校区围墙属偷渡行为" width="100%" />
+                                        </a>
+                                        <span class="title">
+官方称翻越澳门大学新校区围墙属偷渡行                                        </span>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/v6f/gnxw/508.jhtml" target="_blank">
+                                        <img src="/u/cms/www/201309/100953460bvo.jpg" alt="海口酒行发生爆炸两人受伤 玻璃碎片炸飞50米外" width="100%" />
+                                        </a>
+                                        <span class="title">
+海口酒行发生爆炸两人受伤 玻璃碎片炸                                        </span>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/v6f/gnxw/507.jhtml" target="_blank">
+                                        <img src="/u/cms/www/201309/100950366ij3.jpg" alt="广州又现“楼歪歪” 三栋居民楼倾斜" width="100%" />
+                                        </a>
+                                        <span class="title">
+广州又现“楼歪歪” 三栋居民楼倾斜                                        </span>
+                                    </li>
+                                    </ul>
+                                </div>
+                                <div class="slidebar" id="slideBar">
+                                    <ul>
+                                        <li class="on">1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        SlideShow(3000);
+                    </script>
+                    <!-- 焦点图代码宽310_end -->
+                    <div class="clear"></div>
+                    <!-- 资讯排行榜宽310_begin -->
+                    <div class="w308 rim02 mt10">
+                        <div class="LanMu02b">
+                            <div class="LanMu02a">资讯排行榜</div>
+                        </div>
+                        <div class="paihangbang">
+                            <ul>
+                                <li>
+                                <div class="v-rank1-order1 v-rank1-top1">1</div>
+                                <a href="http://localhost:8080/v6f/gnxw/510.jhtml" title="官方称翻越澳门大学新校区围墙属偷渡行为" target="_blank">
+官方称翻越澳门大学新校区围墙属偷渡                                </a>
+                                </li>
+                                <li>
+                                <div class="v-rank1-order1 v-rank1-top1">2</div>
+                                <a href="http://localhost:8080/v6f/review/564.jhtml" title="刘迎秋：新自由主义究竟是什么" target="_blank">
+刘迎秋：新自由主义究竟是什么                                </a>
+                                </li>
+                                <li>
+                                <div class="v-rank1-order1 v-rank1-top1">3</div>
+                                <a href="http://localhost:8080/v6f/review/563.jhtml" title="牛新春：要下决心恢复自行车路权" target="_blank">
+牛新春：要下决心恢复自行车路权                                </a>
+                                </li>
+                                <li>
+                                <div class="v-rank1-order1 v-rank1-top1">4</div>
+                                <a href="http://localhost:8080/v6f/review/562.jhtml" title="邓聿文：激活批评和自我批评这个武器" target="_blank">
+邓聿文：激活批评和自我批评这个武器                                </a>
+                                </li>
+                                <li>
+                                <div class="v-rank1-order1 v-rank1-top1">5</div>
+                                <a href="http://localhost:8080/v6f/review/561.jhtml" title="凌寒：劝禁食遭打，莫让公共规范变私人恩怨" target="_blank">
+凌寒：劝禁食遭打，莫让公共规范变私                                </a>
+                                </li>
+                                <li>
+                                <div class="v-rank1-order1 v-rank1-top1">6</div>
+                                <a href="http://localhost:8080/v6f/gjxw/560.jhtml" title="巴基斯坦7.7级地震震中地区超9成房屋倒塌" target="_blank">
+巴基斯坦7.7级地震震中地区超9成房屋                                </a>
+                                </li>
+                                <li>
+                                <div class="v-rank1-order1 v-rank1-top1">7</div>
+                                <a href="http://localhost:8080/v6f/gjxw/559.jhtml" title="安倍：日自卫队将跟随美军到世界任何一个角落" target="_blank">
+安倍：日自卫队将跟随美军到世界任何                                </a>
+                                </li>
+                                <li>
+                                <div class="v-rank1-order1 v-rank1-top1">8</div>
+                                <a href="http://localhost:8080/v6f/gjxw/536.jhtml" title="章子怡献唱公益节目讲述梦想" target="_blank">
+章子怡献唱公益节目讲述梦想                                </a>
+                                </li>
+                                <li>
+                                <div class="v-rank1-order1 v-rank1-top1">9</div>
+                                <a href="http://localhost:8080/v6f/shehui/512.jhtml" title="房价上涨最快的城市排行 去那买房让你赚翻" target="_blank">
+房价上涨最快的城市排行 去那买房让                                </a>
+                                </li>
+                                <li>
+                                <div class="v-rank1-order1 v-rank1-top1">10</div>
+                                <a href="http://localhost:8080/v6f/gjxw/511.jhtml" title="毛泽东逝世37周年 亲属及工作人员现身纪念" target="_blank">
+毛泽东逝世37周年 亲属及工作人员现                                </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 资讯排行榜宽310_end -->
+                    <div class="clear"></div>
+                </div>
+            
+            	<!-- 新闻_begin -->
+                <div class="w350">
+                    <div class="LanMu01b rim01">
+                        <div class="LanMu01a"></div>
+                        <span>新闻资讯</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="xinwenzixun">
+                        <ul>
+                            <li><a href="http://localhost:8080/v6f/gnxw/510.jhtml" title="官方称翻越澳门大学新校区围墙属偷渡行为" target="_blank">官方称翻越澳门大学新校区围墙属偷渡行为</a></li>
+                            <li><a href="http://localhost:8080/v6f/gnxw/509.jhtml" title="朱镕基新书曾提前印样本向中央领导征求意见" target="_blank">朱镕基新书曾提前印样本向中央领导征求意见</a></li>
+                            <li><a href="http://localhost:8080/v6f/gnxw/508.jhtml" title="海口酒行发生爆炸两人受伤 玻璃碎片炸飞50米外" target="_blank">海口酒行发生爆炸两人受伤 玻璃碎片炸飞50米外</a></li>
+                            <li><a href="http://localhost:8080/v6f/gnxw/507.jhtml" title="广州又现“楼歪歪” 三栋居民楼倾斜" target="_blank">广州又现“楼歪歪” 三栋居民楼倾斜</a></li>
+                            <li><a href="http://localhost:8080/v6f/gnxw/506.jhtml" title="云南山洪冲断路桥 致4人遇难7人失踪" target="_blank">云南山洪冲断路桥 致4人遇难7人失踪</a></li>
+                            <li><a href="http://localhost:8080/v6f/gnxw/448.jhtml" title="两名少年为挣钱在多个省市抢劫杀死7人" target="_blank" style="color:#e66100;">两名少年为挣钱在多个省市抢劫杀死7人</a></li>
+                        </ul>
+                    </div>
+                    <div class="xinwenzixun">
+                        <ul>
+                            <li><a href="http://localhost:8080/v6f/gjxw/560.jhtml" title="巴基斯坦7.7级地震震中地区超9成房屋倒塌" target="_blank">巴基斯坦7.7级地震震中地区超9成房屋倒塌</a></li>
+                            <li><a href="http://localhost:8080/v6f/gjxw/559.jhtml" title="安倍：日自卫队将跟随美军到世界任何一个角落" target="_blank">安倍：日自卫队将跟随美军到世界任何一个角落</a></li>
+                            <li><a href="http://localhost:8080/v6f/gjxw/536.jhtml" title="章子怡献唱公益节目讲述梦想" target="_blank">章子怡献唱公益节目讲述梦想</a></li>
+                            <li><a href="http://localhost:8080/v6f/gjxw/511.jhtml" title="毛泽东逝世37周年 亲属及工作人员现身纪念" target="_blank">毛泽东逝世37周年 亲属及工作人员现身纪念</a></li>
+                            <li><a href="http://localhost:8080/v6f/gjxw/447.jhtml" title="醉酒男子强奸孕妇未遂 持刀返回找手机伤人" target="_blank" style="color:#e66100;">醉酒男子强奸孕妇未遂 持刀返回找手机伤人</a></li>
+                        </ul>
+                    </div>
+                    <div class="xinwenzixun">
+                        <ul>
+                            <li><a href="http://localhost:8080/v6f/shehui/512.jhtml" title="房价上涨最快的城市排行 去那买房让你赚翻" target="_blank">房价上涨最快的城市排行 去那买房让你赚翻</a></li>
+                            <li><a href="http://localhost:8080/v6f/shehui/445.jhtml" title="男子欠债万元没钱还 自导绑架案骗老婆付赎金" target="_blank" style="color:#e66100;">男子欠债万元没钱还 自导绑架案骗老婆付赎金</a></li>
+                            <li><a href="http://localhost:8080/v6f/shehui/443.jhtml" title="2名女乘客因航班延误殴打地勤人员被拘留5天" target="_blank">2名女乘客因航班延误殴打地勤人员被拘留5天</a></li>
+                            <li><a href="http://localhost:8080/v6f/shehui/442.jhtml" title="城管局司机袒护无证幼儿园踢飞凳子阻挠采访" target="_blank">城管局司机袒护无证幼儿园踢飞凳子阻挠采访</a></li>
+                            <li><a href="http://localhost:8080/v6f/shehui/441.jhtml" title="伪造国字头研究院承接水电项目 曾通过政府审查" target="_blank">伪造国字头研究院承接水电项目 曾通过政府审查</a></li>
+                            <li><a href="http://localhost:8080/v6f/shehui/440.jhtml" title="男子非法拘禁妻子情夫 殴打侮辱并索钱被诉" target="_blank">男子非法拘禁妻子情夫 殴打侮辱并索钱被诉</a></li>
+                        </ul>
+                    </div>
+                </div>
+        		<!-- 新闻_end -->
+            </div>
+        	<div class="clear"></div>
+            <!-- 广告_begin -->
+            <div class="hundred100 mt10">
+                <a href="http://www.portal.com" target="_blank">
+                <img src="../../v6f/r/cms/www/default/img/index/banner1.jpg" width="100%">
+                </a>
+        </div>
+            <!-- 广告_end -->
+			<div class="clear"></div>
+            <div class="hundred100 mt10">
+            	<!-- 视频_begin -->
+            	<div class="AreaTitle">电视剧 / 纪录片</div>
+                <div class="leftAreaContent2">
+                    <ul>
+                        <li><a href="http://localhost:8080/v6f/tv/505.jhtml" title="小爸爸 第四集" target="_blank">小爸爸 第四集</a></li>
+                        <li><a href="http://localhost:8080/v6f/tv/504.jhtml" title="小爸爸 第三集" target="_blank">小爸爸 第三集</a></li>
+                        <li><a href="http://localhost:8080/v6f/tv/503.jhtml" title="小爸爸 第二集" target="_blank">小爸爸 第二集</a></li>
+                        <li><a href="http://localhost:8080/v6f/tv/502.jhtml" title="小爸爸 第一集" target="_blank">小爸爸 第一集</a></li>
+                        
+                        <li><a href="http://localhost:8080/v6f/jlp/541.jhtml" title="女博士于娟和她的抗癌日记" target="_blank">女博士于娟和她的抗癌日记</a></li>
+                        <li><a href="http://localhost:8080/v6f/jlp/540.jhtml" title="战后10年的伊拉克现在怎么样" target="_blank">战后10年的伊拉克现在怎么样</a></li>
+                        <li><a href="http://localhost:8080/v6f/jlp/539.jhtml" title="中苏外交档案解密 兵戎相见" target="_blank">中苏外交档案解密 兵戎相见</a></li>
+                        <li><a href="http://localhost:8080/v6f/jlp/484.jhtml" title="镖行天下：揭秘镖局" target="_blank">镖行天下：揭秘镖局</a></li>
+                    </ul>
+                </div>
+                <div class="rightAreaContent2">
+                    <ul>
+                        <li>
+                        	<a href="http://localhost:8080/v6f/tv/505.jhtml" class="figure" target="_blank">
+                        	<img src="/u/cms/www/201309/09170006n0hs.jpg" alt="小爸爸 第四集" />
+                        	</a>
+                        	<div class="clear"></div>
+                            <span class="figure_mask">
+                            <em class="mask_txt">电视剧</em>
+                            </span>
+                            <p>
+                            <a href="http://localhost:8080/v6f/tv/505.jhtml" class="figure" target="_blank">
+小爸爸 第四集                            </a>
+                            </p>
+                        </li>
+                        <li>
+                        	<a href="http://localhost:8080/v6f/tv/504.jhtml" class="figure" target="_blank">
+                        	<img src="/u/cms/www/201309/09165821s06r.jpg" alt="小爸爸 第三集" />
+                        	</a>
+                        	<div class="clear"></div>
+                            <span class="figure_mask">
+                            <em class="mask_txt">电视剧</em>
+                            </span>
+                            <p>
+                            <a href="http://localhost:8080/v6f/tv/504.jhtml" class="figure" target="_blank">
+小爸爸 第三集                            </a>
+                            </p>
+                        </li>
+                        <li>
+                        	<a href="http://localhost:8080/v6f/tv/503.jhtml" class="figure" target="_blank">
+                        	<img src="/u/cms/www/201309/091655240woj.jpg" alt="小爸爸 第二集" />
+                        	</a>
+                        	<div class="clear"></div>
+                            <span class="figure_mask">
+                            <em class="mask_txt">电视剧</em>
+                            </span>
+                            <p>
+                            <a href="http://localhost:8080/v6f/tv/503.jhtml" class="figure" target="_blank">
+小爸爸 第二集                            </a>
+                            </p>
+                        </li>
+                        <li>
+                        	<a href="http://localhost:8080/v6f/tv/502.jhtml" class="figure" target="_blank">
+                        	<img src="/u/cms/www/201309/09165026tk5e.jpg" alt="小爸爸 第一集" />
+                        	</a>
+                        	<div class="clear"></div>
+                            <span class="figure_mask">
+                            <em class="mask_txt">电视剧</em>
+                            </span>
+                            <p>
+                            <a href="http://localhost:8080/v6f/tv/502.jhtml" class="figure" target="_blank">
+小爸爸 第一集                            </a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            <!-- 视频_end -->
+            </div>
+            <div class="clear"></div>
+            <div class="hundred100 mt10">
+            	<!-- 招聘_begin -->
+                <div class="AreaTitle">招聘</div>
+                <div class="jobTitleBg">
+                	<h1>职位名称</h1>
+                    <h2>公司名称</h2>
+                    <h3>工作地点</h3>
+                    <h4>日期</h4>
+                </div>
+                <div class="jobContent">
+                	<ul>
+               	  </ul>
+                </div>
+                <!-- 招聘_end -->
+          </div>
+          <div class="clear"></div>
+			<div class="hundred100 mt10">
+            	<!-- 图库_begin -->
+                <div class="AreaTitle">文体娱乐 / 美容资讯 / 文化校园 / 探索新知</div>
+                <div class="AreaContent1">
+                    <ul class="box">
+                        <li>
+                        <a href="http://localhost:8080/v6f/mrzx/535.jhtml" title="熊乃瑾清新写真" target="_blank">
+                        	<div class="toll_img">
+                        		<img src="/u/cms/www/201309/121543059cct.jpg" alt="熊乃瑾清新写真" width="155" height="110" />
+                        	</div>
+                            <div class="toll_info">
+                            <p>熊乃瑾清新写真</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://localhost:8080/v6f/mrzx/534.jhtml" title="小宋佳时尚大片" target="_blank">
+                        	<div class="toll_img">
+                        		<img src="/u/cms/www/201309/121536505s2h.jpg" alt="小宋佳时尚大片" width="155" height="110" />
+                        	</div>
+                            <div class="toll_info">
+                            <p>小宋佳时尚大片</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://localhost:8080/v6f/mrzx/530.jhtml" title="曾黎复古造型亮相纽约时装周 红唇成亮点" target="_blank">
+                        	<div class="toll_img">
+                        		<img src="/u/cms/www/201309/121456599tnd.jpg" alt="曾黎复古造型亮相纽约时装周 红唇成亮点" width="155" height="110" />
+                        	</div>
+                            <div class="toll_info">
+                            <p>曾黎复古造型亮相纽约时装周 红唇成亮点</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://localhost:8080/v6f/mrzx/529.jhtml" title="吴秀波大奔头亮相 尽显迷人绅士范儿" target="_blank">
+                        	<div class="toll_img">
+                        		<img src="/u/cms/www/201309/12143342sfmg.jpg" alt="吴秀波大奔头亮相 尽显迷人绅士范儿" width="155" height="110" />
+                        	</div>
+                            <div class="toll_info">
+                            <p>吴秀波大奔头亮相 尽显迷人绅士范儿</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://localhost:8080/v6f/mrzx/528.jhtml" title="宋佳封面大片曝光 恬淡清新演绎早秋时尚" target="_blank">
+                        	<div class="toll_img">
+                        		<img src="/u/cms/www/201309/12142830poeb.jpg" alt="宋佳封面大片曝光 恬淡清新演绎早秋时尚" width="155" height="110" />
+                        	</div>
+                            <div class="toll_info">
+                            <p>宋佳封面大片曝光 恬淡清新演绎早秋时尚</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://localhost:8080/v6f/mrzx/523.jhtml" title="宋祖英升任团长后首带队演出" target="_blank">
+                        	<div class="toll_img">
+                        		<img src="/u/cms/www/201309/12135243x57l.jpg" alt="宋祖英升任团长后首带队演出" width="155" height="110" />
+                        	</div>
+                            <div class="toll_info">
+                            <p>宋祖英升任团长后首带队演出</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://localhost:8080/v6f/mrzx/522.jhtml" title="王智写真演绎复古风情" target="_blank">
+                        	<div class="toll_img">
+                        		<img src="/u/cms/www/201309/12134933sxsx.jpg" alt="王智写真演绎复古风情" width="155" height="110" />
+                        	</div>
+                            <div class="toll_info">
+                            <p>王智写真演绎复古风情</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li>
+                        <a href="http://localhost:8080/v6f/mrzx/521.jhtml" title="全智贤着衬衫秀长腿" target="_blank">
+                        	<div class="toll_img">
+                        		<img src="/u/cms/www/201309/12134552bk69.jpg" alt="全智贤着衬衫秀长腿" width="155" height="110" />
+                        	</div>
+                            <div class="toll_info">
+                            <p>全智贤着衬衫秀长腿</p>
+                            </div>
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+              <!-- 图库_end -->
+             </div>
+             <div class="clear"></div>
+             <div class="hundred100 mt10">
+            	<!-- 下载_begin -->
+                <div class="AreaTitle">下载</div>
+                <div class="downContent1">
+                	<ul>
+                          <li>
+                            <div class="downImg">
+                                <a href="http://localhost:8080/v6f/syzs/334.jhtml" class="figure" target="_blank">
+                                <img src="/u/cms/www/201309/19141700opui.jpg" width="46" height="48"/>
+                                </a>
+                            </div>
+                            <div class="downTex">
+                            	<a href="http://localhost:8080/v6f/syzs/334.jhtml" title="搜狗拼音输入" target="_blank">搜狗拼音输入</a>
+                                <p>准确快速</p>
+                            	<p>
+                                <a href="http://localhost:8080/v6f/syzs/334.jhtml" target="_blank">
+                                <img src="../../v6f/r/cms/www/default/img/index/downMenu.gif" width="61" height="23">
+                                </a>
+                            	</p>
+                            </div>
+                        </li>
+                          <li>
+                            <div class="downImg">
+                                <a href="http://localhost:8080/v6f/syzs/335.jhtml" class="figure" target="_blank">
+                                <img src="/u/cms/www/201309/19142041eu8x.jpg" width="46" height="48"/>
+                                </a>
+                            </div>
+                            <div class="downTex">
+                            	<a href="http://localhost:8080/v6f/syzs/335.jhtml" title="有道词典" target="_blank">有道词典</a>
+                                <p>翻译多语种网络词典</p>
+                            	<p>
+                                <a href="http://localhost:8080/v6f/syzs/335.jhtml" target="_blank">
+                                <img src="../../v6f/r/cms/www/default/img/index/downMenu.gif" width="61" height="23">
+                                </a>
+                            	</p>
+                            </div>
+                        </li>
+                          <li>
+                            <div class="downImg">
+                                <a href="http://localhost:8080/v6f/syzs/336.jhtml" class="figure" target="_blank">
+                                <img src="/u/cms/www/201309/19142430589t.jpg" width="46" height="48"/>
+                                </a>
+                            </div>
+                            <div class="downTex">
+                            	<a href="http://localhost:8080/v6f/syzs/336.jhtml" title="迅雷7" target="_blank">迅雷7</a>
+                                <p>迅雷7.0</p>
+                            	<p>
+                                <a href="http://localhost:8080/v6f/syzs/336.jhtml" target="_blank">
+                                <img src="../../v6f/r/cms/www/default/img/index/downMenu.gif" width="61" height="23">
+                                </a>
+                            	</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="downContent2">
+                	<ul>
+                        <li><a href="http://localhost:8080/v6f/syzs/337.jhtml" title="多玩YY" target="_blank">多玩YY</a></li>
+                        <li><a href="http://localhost:8080/v6f/media/172.jhtml" title="酷乐影音" target="_blank">酷乐影音</a></li>
+                        <li><a href="http://localhost:8080/v6f/media/173.jhtml" title="千千静听" target="_blank">千千静听</a></li>
+                        <li><a href="http://localhost:8080/v6f/media/331.jhtml" title="腾讯QQ " target="_blank">腾讯QQ </a></li>
+                        <li><a href="http://localhost:8080/v6f/media/332.jhtml" title="风行网络电影" target="_blank">风行网络电影</a></li>
+                        <li><a href="http://localhost:8080/v6f/network/326.jhtml" title="魔兽世界" target="_blank">魔兽世界</a></li>
+                        <li><a href="http://localhost:8080/v6f/network/328.jhtml" title="天下3" target="_blank">天下3</a></li>
+                        <li><a href="http://localhost:8080/v6f/network/329.jhtml" title="神魔大陆" target="_blank">神魔大陆</a></li>
+                        <li><a href="http://localhost:8080/v6f/network/330.jhtml" title="永恒之塔" target="_blank">永恒之塔</a></li>
+                    </ul>
+                </div>
+                <!-- 下载_end -->
+             </div>
+             <div class="clear"></div>
+             <div class="hundred100 mt10">
+				<!-- 网友留言_begin -->
+                <div class="AreaTitle">网友留言</div>
+                <div class="lybCon">
+                       <dl>
+                       <div class="lybTX">
+                           <img src="/v6f/r/cms/www/default/img/member/member-phtot.gif" />
+                       </div>
+                       <div class="lybMessage">
+                          <h1>[普通]&nbsp;111111111111111</h1>
+                          <span style="color:#E66100; font-size:12px;">匿名网友 于2014-01-01 15:02:19{评论}：</span>
+                          <span style="color:#959595; font-size:12px; line-height:20px;">11</span>
+                          <div class="clear"></div>
+                          <img src="../../v6f/r/cms/www/default/img/guestbook/icon_message.gif" class="lybImg">
+                          <h4>&nbsp;管理员回复：11111111111111111</h4>
+                       </div>
+                       </dl>
+                       <div class="clear"></div>
+                       <div style="border-bottom:1px dashed #d6d6d6;"></div>
+               </div>
+                <!-- 网友留言_end -->
+             </div>
+        </div>
+        <div class="w300">
+            <!-- 精彩专题_begin -->
+            <script src="/v6f/r/cms/www/default/js/shensuo.js" type="text/javascript"></script>
+            <div class="rim02 mt10">
+                <div class="LanMu02b">
+                    <div class="LanMu02a">精彩专题</div>
+                </div>
+                <ul class="m-list list-tweet">
+                <li>
+                <h3 onMouseOver=javascript:ShowFLT(1) href="javascript:void(null)">
+                <a href="/v6f/topic/6.jspx">
+                美军准备空袭叙利亚
+                </a>
+                </h3>
+                <p id=LM1  class="drink-me clearfix">
+                <a href="/v6f/topic/6.jspx">
+                <img src="/u/cms/www/201309/09160120meel.jpg" width="90" height="64"/>
+                </a>
+·6月4日：联合国称叙冲突双方均使用化武
+·7月9日：俄调查称叙反对派使用...                <span class="cBlue"><a href="/v6f/topic/6.jspx"> 详细&gt;&gt;</a></span>
+                </p>
+                </li>
+                <li>
+                <h3 onMouseOver=javascript:ShowFLT(2) href="javascript:void(null)">
+                <a href="/v6f/topic/7.jspx">
+                “气功大师”王林遭质疑
+                </a>
+                </h3>
+                <p id=LM2 style="display:none;" class="drink-me clearfix">
+                <a href="/v6f/topic/7.jspx">
+                <img src="/u/cms/www/201309/09174523xkvt.jpg" width="90" height="64"/>
+                </a>
+“气功大师”王林一直以来的低调被2013年7月初马云的一次拜访打破，网友...                <span class="cBlue"><a href="/v6f/topic/7.jspx"> 详细&gt;&gt;</a></span>
+                </p>
+                </li>
+                <li>
+                <h3 onMouseOver=javascript:ShowFLT(3) href="javascript:void(null)">
+                <a href="/v6f/topic/5.jspx">
+                广西桂林学校附近发生爆炸
+                </a>
+                </h3>
+                <p id=LM3 style="display:none;" class="drink-me clearfix">
+                <a href="/v6f/topic/5.jspx">
+                <img src="/u/cms/www/201309/0915541140xt.jpg" width="90" height="64"/>
+                </a>
+·时间：9日8时许
+·地点：桂林市灵川县八里街学校大门附近
+·事件：9日8...                <span class="cBlue"><a href="/v6f/topic/5.jspx"> 详细&gt;&gt;</a></span>
+                </p>
+                </li>
+                <li>
+                <h3 onMouseOver=javascript:ShowFLT(4) href="javascript:void(null)">
+                <a href="/v6f/topic/4.jspx">
+                习近平中亚之行
+                </a>
+                </h3>
+                <p id=LM4 style="display:none;" class="drink-me clearfix">
+                <a href="/v6f/topic/4.jspx">
+                <img src="/u/cms/www/201309/09152931cgps.jpg" width="90" height="64"/>
+                </a>
+9月3日—4日：对土库曼斯进行国事访问
+·9月5日—6日：出席G20领导人第八...                <span class="cBlue"><a href="/v6f/topic/4.jspx"> 详细&gt;&gt;</a></span>
+                </p>
+                </li>
+                <li>
+                <h3 onMouseOver=javascript:ShowFLT(5) href="javascript:void(null)">
+                <a href="/v6f/topic/3.jspx">
+                低碳经济
+                </a>
+                </h3>
+                <p id=LM5 style="display:none;" class="drink-me clearfix">
+                <a href="/v6f/topic/3.jspx">
+                <img src="/u/cms/www/201309/09151507n6i1.jpg" width="90" height="64"/>
+                </a>
+所谓低碳经济，是指在可持续发展理念指导下，通过技术创新、制度创新、产...                <span class="cBlue"><a href="/v6f/topic/3.jspx"> 详细&gt;&gt;</a></span>
+                </p>
+                </li>
+                <li>
+                <h3 onMouseOver=javascript:ShowFLT(6) href="javascript:void(null)">
+                <a href="/v6f/topic/2.jspx">
+                上海世博会专题
+                </a>
+                </h3>
+                <p id=LM6 style="display:none;" class="drink-me clearfix">
+                <a href="/v6f/topic/2.jspx">
+                <img src="http://xwcb.eastday.com/c/20061116/images/00033531.jpg" width="90" height="64"/>
+                </a>
+人类文明的盛会，我们大家的世博，精彩开篇，“满月”有余。随着上海世博...                <span class="cBlue"><a href="/v6f/topic/2.jspx"> 详细&gt;&gt;</a></span>
+                </p>
+                </li>
+                <li>
+                <h3 onMouseOver=javascript:ShowFLT(7) href="javascript:void(null)">
+                <a href="/v6f/topic/1.jspx">
+                2010年南非世界杯
+                </a>
+                </h3>
+                <p id=LM7 style="display:none;" class="drink-me clearfix">
+                <a href="/v6f/topic/1.jspx">
+                <img src="http://a2.att.hudong.com/08/61/01300000406647124377613651616.jpg" width="90" height="64"/>
+                </a>
+2010年世界杯将在南非约翰内斯堡拉开帷幕，32路豪强将在一个月的时间里，...                <span class="cBlue"><a href="/v6f/topic/1.jspx"> 详细&gt;&gt;</a></span>
+                </p>
+                </li>
+                </ul>
+            </div>
+            <!-- 精彩专题_end -->
+        	<!-- 大家爱看_begin -->
+            <div class="rim02 mt10">
+                <div class="LanMu02b">
+                    <div class="LanMu02a">大家爱看</div>
+                </div>
+                <div class="column">
+                    <h3 class="column-title lump-blue">时事</h3>
+                    <ul class="m-list list-main-normal">
+                    <li>
+                    <a href="http://localhost:8080/v6f/review/564.jhtml" title="刘迎秋：新自由主义究竟是什么" target="_blank">刘迎秋：新自由主义究竟是什么</a>
+                    </li>
+                    <li>
+                    <a href="http://localhost:8080/v6f/review/563.jhtml" title="牛新春：要下决心恢复自行车路权" target="_blank">牛新春：要下决心恢复自行车路权</a>
+                    </li>
+                    <li>
+                    <a href="http://localhost:8080/v6f/review/562.jhtml" title="邓聿文：激活批评和自我批评这个武器" target="_blank">邓聿文：激活批评和自我批评这个武器</a>
+                    </li>
+                    <li>
+                    <a href="http://localhost:8080/v6f/review/561.jhtml" title="凌寒：劝禁食遭打，莫让公共规范变私人恩怨" target="_blank">凌寒：劝禁食遭打，莫让公共规范变私人恩</a>
+                    </li>
+                    </ul>
+                    <h3 class="column-title lump-green">基金</h3>
+                    <ul class="m-list list-main-normal">
+                    </ul>
+                    <h3 class="column-title lump-gray">社会</h3>
+                    <ul class="m-list list-main-normal">
+                      <li>
+                    <a href="http://localhost:8080/v6f/shehui/512.jhtml" title="房价上涨最快的城市排行 去那买房让你赚翻" target="_blank">房价上涨最快的城市排行 去那买房让你赚翻</a>
+                    </li>
+                      <li>
+                    <a href="http://localhost:8080/v6f/shehui/445.jhtml" title="男子欠债万元没钱还 自导绑架案骗老婆付赎金" target="_blank">男子欠债万元没钱还 自导绑架案骗老婆付</a>
+                    </li>
+                      <li>
+                    <a href="http://localhost:8080/v6f/shehui/443.jhtml" title="2名女乘客因航班延误殴打地勤人员被拘留5天" target="_blank">2名女乘客因航班延误殴打地勤人员被拘留5</a>
+                    </li>
+                    </ul>
+                    <h3 class="column-title lump-red">财经</h3>
+                    <ul class="m-list list-main-normal">
+                    </ul>
+                </div>
+            </div>
+            <!-- 大家爱看_end -->
+            <!-- 网络调查_begin -->
+            <div class="rim02 mt10">
+                <div class="LanMu02b">
+                    <div class="LanMu02a">网络调查</div>
+                </div>
+                <div class="survey">
+                <form name="votes" action="/v6f/vote.jspx" method="post" target="_blank">
+  <table width="100%" border="0" cellspacing="5" cellpadding="0">
+    <tr>
+      <td height="30" colspan="2" align="center"><b>< PORTAL演示站改版用户问卷调查 ><b>
+        <input type="hidden" name="voteId" value="2"/></td>
+    </tr>
+    <tr>
+      <td height="30" colspan="2" align="left">PORTALv5版正式发布了，伴随着系统的完善，portal演示站的模板也一直在不断的改版，针对此次改版，portal美工团队特邀您参与“PORTAL演示站改版用户问卷调查”，希望大家能提出宝贵的意见，我们一定认真改进，谢谢大家的支持！</td>
+    </tr>
+    <tr>
+      <td height="30" colspan="2" align="left">
+      <span style="color:#1c77ba;">1、V5版本演示站网页的设计风格您喜欢吗？</span>
+      </td>
+    </tr>
+			 <tr>
+			 	<td height="30" colspan="2" align="left">
+	    			<input type="radio" name="itemIds12" value="3"/>1.很喜欢
+	    			<input type="radio" name="itemIds12" value="2"/>2.喜欢
+	    			<input type="radio" name="itemIds12" value="1"/>3.不喜欢
+				</td>
+			</tr>
+		 <input name=subIds type="hidden" value="12"/>
+    <tr>
+      <td height="30" colspan="2" align="left">
+      <span style="color:#1c77ba;">2、V5版本比V2012sp1版的设计风格有改进吗？</span>
+      </td>
+    </tr>
+			 <tr>
+			 	<td height="30" colspan="2" align="left">
+	    			<input type="radio" name="itemIds11" value="6"/>1.改进很大
+	    			<input type="radio" name="itemIds11" value="5"/>2.有改进
+	    			<input type="radio" name="itemIds11" value="7"/>3.差不多
+	    			<input type="radio" name="itemIds11" value="4"/>4.没有改进
+				</td>
+			</tr>
+		 <input name=subIds type="hidden" value="11"/>
+    <tr>
+      <td height="30" colspan="2" align="left">
+      <span style="color:#1c77ba;">3、我觉得这里完善一下：</span>
+      </td>
+    </tr>
+			<tr>
+				<td height="30" colspan="2" align="left">
+					<input name="reply" type="text"/>
+				</td>
+			 </tr>
+		 <input name=subIds type="hidden" value="10"/>
+    <tr>
+      <td height="30" colspan="2" align="left">
+      <span style="color:#1c77ba;">4、您觉得V5演示站哪些模块做的比较好</span>
+      </td>
+    </tr>
+			<tr>
+				<td height="30" colspan="2" align="left">
+				      <input type="checkbox" name="itemIds9" value="9"  id="9"/>1.新闻
+				      <input type="checkbox" name="itemIds9" value="10"  id="10"/>2.图库
+				      <input type="checkbox" name="itemIds9" value="11"  id="11"/>3.视频
+				      <input type="checkbox" name="itemIds9" value="8"  id="8"/>4.下载
+			    </td>
+			</tr>
+		 <input name=subIds type="hidden" value="9"/>
+    <tr>
+      <td height="35" colspan="2" align="center" valign="bottom"><input type="submit" value="投 票"/>
+      &nbsp; <a href="/v6f/vote_result.jspx?voteId=2" target="_blank">查看投票结果</a> </td>
+    </tr>
+  </table>
+</form>
+<br>
+                </div>
+            </div>
+            <!-- 网络调查_end -->
+            <!-- 热门评论_begin -->
+            <div class="rim02 mt10">
+                <div class="LanMu02b">
+                    <div class="LanMu02a">热门评论</div>
+                </div>
+                <div id="plcon">
+                    <ul>
+                        <li>
+                            <span style="color:#E66100;">admin</span>
+                            <span style="color:#aaaaaa;">&nbsp;对&nbsp;</span>
+                            <a href="http://localhost:8080/v6f/shehui/445.jhtml" target="_blank"><span style="color:#1C77BA;">男子欠债万元没钱还 自导绑架案骗老婆付赎金</span></a>
+                            <span style="color:#aaaaaa;">评论道：</span>
+                            <span style="color:#000000;">asdfasd</span>
+                        </li>
+                        <li>
+                            <span style="color:#E66100;">admin</span>
+                            <span style="color:#aaaaaa;">&nbsp;对&nbsp;</span>
+                            <a href="http://localhost:8080/v6f/shehui/512.jhtml" target="_blank"><span style="color:#1C77BA;">房价上涨最快的城市排行 去那买房让你赚翻</span></a>
+                            <span style="color:#aaaaaa;">评论道：</span>
+                            <span style="color:#000000;">121212</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 热门评论_end -->
+        </div>
+    </div>
+<div class="clear"></div>
+<div class="yqlj">
+
+        <div class="yqljLeft">友情链接</div>
+        <div class="yqljRight">
+        <div style="margin-right:1%;">
+                <div style="margin-left:1.5%; float:left;">
+        <a href="http://www.portal.com" onclick="$.get('/v6f/friendlink_view.jspx?id=1')" target="_blank">PORTAL官网</a>
+        </div>
+        <div style="margin-left:1.5%; float:left;">
+        <a href="http://bbs.portal.com" onclick="$.get('/v6f/friendlink_view.jspx?id=2')" target="_blank">JEEBBS论坛</a>
+        </div>
+        <div style="margin-left:1.5%; float:left;">
+        <a href="http://www.360buy.com/" onclick="$.get('/v6f/friendlink_view.jspx?id=3')" target="_blank">京东商城</a>
+        </div>
+        <div style="margin-left:1.5%; float:left;">
+        <a href="http://www.dangdang.com/" onclick="$.get('/v6f/friendlink_view.jspx?id=4')" target="_blank">当当网</a>
+        </div>
+        <div style="margin-left:1.5%; float:left;">
+        <a href="http://www.amazon.cn/" onclick="$.get('/v6f/friendlink_view.jspx?id=5')" target="_blank">亚马逊</a>
+        </div>
+        <div style="margin-left:1.5%; float:left;">
+        <a href="http://www.ihush.com/" onclick="$.get('/v6f/friendlink_view.jspx?id=6')" target="_blank">ihush</a>
+        </div>
+        </div>
+        </div>
+</div>
+<div class="clear-10"></div>
+<div class="footBg">
+    <div class="footBglm">
+    <a target="_blank" href="/about.jhtml">关于我们</a> - 
+    <a target="_blank" href="http://www.portal.com/lxwm.htm">联系我们</a> -
+    <a target="_blank" href="http://www.portal.com/zhaopin.htm">诚聘英才</a> -
+    <a target="_blank" href="http://www.portal.com">友情链接</a> -
+    <a target="_blank" href="http://www.portal.com/download/index.htm">程序下载</a> -
+    <a target="_blank" href="http://www.portal.com">合作服务</a> -
+    <a target="_blank" href="http://www.portal.com/xkxy.htm">许可协议</a> -
+    <a onclick="SetHome(window.location)"href="javascript:void(0)">设为首页</a> - 
+    <a onclick="AddFavorite(window.location,document.title)"href="javascript:void(0)">加入收藏</a> - 
+    <a target="_blank" href="/v6f/admin/portal/index.do">管理登录</a>
+    </div>
+    <div class="clear-10"></div>
+    电话：0791-6538070、13576281815　传真：0791-6538070  <br />
+    <a href="http://webscan.360.cn/index/checkwebsite/url/demo.portal.com" name="f3c7904fe3ece04f0e17b1ecf7d60f3d" >360网站安全检测平台</a>
+    Powered by <a target="_blank" href="http://www.portal.com">PORTAL</a> Copyright &copy; 2007-2013 www.portal.com, All Rights Reserved
+    pv总量<span id="pv"></span>  访客数总量<span id="visitor"></span>
+</div></div>
+</body>
+</html>

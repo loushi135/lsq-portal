@@ -1,0 +1,14 @@
+<div id="menu" class="nav">
+    <ul class="nav_ul">
+        <li class="inde_a">
+            <a href="${site.url!}" class="inde_a" target="_self">首 页</a>
+        </li>
+        <#list channelList as channel>
+
+        <li>
+            <a href="${channel.url}"  target="_self" <#if channel??&&channel.url?contains('admin/portal/login')> class="current" </#if>  >${channel.name}</a>
+        </li>
+
+        </#list>
+    </ul>
+</div>
