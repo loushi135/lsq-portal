@@ -47,16 +47,24 @@
 <div class="index_main"><!-- 焦点图 开始 -->
 <div class="focusBox" >
     <ul class="pic" >
-        <li><a href="#" target="_blank"><img src="${base}/res/common/images/1.jpg"></a></li>
-        <li><a href="#" target="_blank"><img src="${base}/res/common/images/2.jpg"></a></li>
-        <li><a href="#" target="_blank"><img src="${base}/res/common/images/1.jpg"></a></li>
+        [@cms_content_list count='5' orderBy='4' typeId='3' titLen='18' channelOption='1' ]
+        [#list tag_list as a]
+        <li>
+            <a href="${a.url}" target="_blank">
+                <img src="${a.typeImg!site.defImg}" alt="${a.title}" width="100%" />
+            </a>
+        </li>
+        [/#list]
+        [/@cms_content_list]
     </ul>
     <div class="txt-bg"></div>
     <div class="txt">
         <ul>
-            <li style="bottom: -36px;"><a href="#">我们热爱当兵1</a></li>
-            <li style="bottom: -36px;"><a href="#">我们热爱当兵2</a></li>
-            <li style="bottom: 0px;"><a href="#">我们热爱当兵3</a></li>
+            [@cms_content_list count='5' orderBy='4' typeId='3' titLen='18' channelOption='1']
+            [#list tag_list as a]
+            <li style="bottom: -36px;"><a href="${a.url}">[@text_cut s=a.title len=titLen /]</a></li>
+            [/#list]
+            [/@cms_content_list]
         </ul>
     </div>
     <ul class="num">
@@ -79,11 +87,11 @@
                     月28日，在意大利海军际赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
                 <div class="clear"></div>
             </div>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            [@cms_content_list count='5' orderBy='4' titLen='24' channelId='70'  channelOption='1']
+            [#list tag_list as a]
+            <li><span>14/16/20</span><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen /]</a></li>
+            [/#list]
+            [/@cms_content_list]
         </div>
         <div class="div_lt">
             <div class="new_op new_lt"> <img src="${base}/res/common/images/new_img.jpg" />
@@ -112,11 +120,11 @@
                 月28日，在意大利海军学院举办的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
             <div class="clear"></div>
         </div>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        [@cms_content_list count='5' orderBy='4' titLen='24' channelId='72'  channelOption='1']
+        [#list tag_list as a]
+        <li><span>14/16/20</span><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen /]</a></li>
+        [/#list]
+        [/@cms_content_list]
     </ul>
 </div>
 <div class="jg_n ">
@@ -128,11 +136,11 @@
                 月28日海军日海军国际帆国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
             <div class="clear"></div>
         </div>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        [@cms_content_list count='5' orderBy='4' titLen='24' channelId='71'  channelOption='1']
+        [#list tag_list as a]
+        <li><span>14/16/20</span><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen /]</a></li>
+        [/#list]
+        [/@cms_content_list]
     </ul>
 </div>
 <div class="jg_n jrzb">
@@ -159,9 +167,11 @@
                 月28日，在意大利海军学院举办的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
             <div class="clear"></div>
         </div>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        [@cms_content_list count='3' orderBy='4' titLen='24' channelId='73'  channelOption='1']
+        [#list tag_list as a]
+        <li><span>14/16/20</span><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen /]</a></li>
+        [/#list]
+        [/@cms_content_list]
     </ul>
 </div>
 <div class="jg_n ">
@@ -173,9 +183,11 @@
                 学院举办的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
             <div class="clear"></div>
         </div>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-        <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+        [@cms_content_list count='3' orderBy='4' titLen='24' channelId='74'  channelOption='1']
+        [#list tag_list as a]
+        <li><span>14/16/20</span><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen /]</a></li>
+        [/#list]
+        [/@cms_content_list]
     </ul>
 </div>
 <div class="jg_n tztg">
@@ -250,11 +262,11 @@
                     月28日，在意大利海军学院举办的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
                 <div class="clear"></div>
             </div>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            [@cms_content_list count='5' orderBy='4' titLen='24' channelId='75'  channelOption='1']
+            [#list tag_list as a]
+            <li><span>14/16/20</span><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen /]</a></li>
+            [/#list]
+            [/@cms_content_list]
         </ul>
     </div>
     <div class="jg_n ">
@@ -266,11 +278,11 @@
                     月28日，在意大的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
                 <div class="clear"></div>
             </div>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            [@cms_content_list count='5' orderBy='4' titLen='24' channelId='76'  channelOption='1']
+            [#list tag_list as a]
+            <li><span>14/16/20</span><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen /]</a></li>
+            [/#list]
+            [/@cms_content_list]
         </ul>
     </div>
     <div class="jg_n zzgz ">
@@ -282,11 +294,11 @@
                     月28日，在意大利海军学院举办的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
                 <div class="clear"></div>
             </div>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            [@cms_content_list count='5' orderBy='4' titLen='24' channelId='77'  channelOption='1']
+            [#list tag_list as a]
+            <li><span>14/16/20</span><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen /]</a></li>
+            [/#list]
+            [/@cms_content_list]
         </ul>
     </div>
     <div class="jg_n ">
@@ -298,11 +310,11 @@
                     月28日，在意大的第30届海军国际帆船赛上，由来自海军<a href="#" class="red">[详情]</a> </div>
                 <div class="clear"></div>
             </div>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
-            <li><span>14/16/20</span><a href="#">编队结束访问意大利启程回国</a></li>
+            [@cms_content_list count='5' orderBy='4' titLen='24' channelId='78'  channelOption='1']
+            [#list tag_list as a]
+            <li><span>14/16/20</span><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen /]</a></li>
+            [/#list]
+            [/@cms_content_list]
         </ul>
     </div>
 </div>

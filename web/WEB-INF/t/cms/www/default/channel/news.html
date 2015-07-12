@@ -33,7 +33,7 @@
         <div class="main_lt">
             <div class="title_current"> 您当前的位置：<a href="${base}/">首页</a> > [#list channel.nodeList as n]<a target="_blank" href="${n.url}">${n.name}</a>[#if n_has_next] > [/#if][/#list]</div>
             <div class="cont_lt">
-                [@cms_content_page count='2' orderBy='4' channelId=channel.id channelOption='2' dateFormat='yy/MM/dd']
+                [@cms_content_page count='10' orderBy='4' channelId=channel.id channelOption='2' dateFormat='yy/MM/dd']
                 <ul class="jg_ul cont_ul">
 
                     [#list tag_pagination.list as a]

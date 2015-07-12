@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2015-07-12 17:15:22
+Date: 2015-07-12 23:56:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -299,9 +299,9 @@ CREATE TABLE `jc_channel_count` (
 -- ----------------------------
 -- Records of jc_channel_count
 -- ----------------------------
-INSERT INTO `jc_channel_count` VALUES ('70', '10', '10', '10', '10');
+INSERT INTO `jc_channel_count` VALUES ('70', '15', '15', '15', '15');
 INSERT INTO `jc_channel_count` VALUES ('71', '3', '3', '3', '3');
-INSERT INTO `jc_channel_count` VALUES ('72', '3', '3', '3', '3');
+INSERT INTO `jc_channel_count` VALUES ('72', '4', '4', '4', '4');
 INSERT INTO `jc_channel_count` VALUES ('73', '3', '3', '3', '3');
 INSERT INTO `jc_channel_count` VALUES ('74', '0', '0', '0', '0');
 INSERT INTO `jc_channel_count` VALUES ('75', '0', '0', '0', '0');
@@ -542,7 +542,7 @@ CREATE TABLE `jc_config` (
 -- ----------------------------
 -- Records of jc_config
 -- ----------------------------
-INSERT INTO `jc_config` VALUES ('1', null, null, '18080', '/dbfile.svl?n=', '0', '/r/cms/www/no_picture.gif', '/login.jspx', null, '0', '120', '120', '', '.', '40', '#FF0000', '100', '1', '0', '0', '2015-07-12', '2015-07-12 17:14:22', 'jeecms', '12', null, null, null, null, null, '1', '0');
+INSERT INTO `jc_config` VALUES ('1', null, null, '18080', '/dbfile.svl?n=', '0', '/r/cms/www/no_picture.gif', '/login.jspx', null, '0', '120', '120', '', '.', '40', '#FF0000', '100', '1', '0', '0', '2015-07-12', '2015-07-12 23:42:57', 'jeecms', '12', null, null, null, null, null, '1', '0');
 
 -- ----------------------------
 -- Table structure for `jc_config_attr`
@@ -648,17 +648,20 @@ CREATE TABLE `jc_content` (
   CONSTRAINT `fk_jc_content_site` FOREIGN KEY (`site_id`) REFERENCES `jc_site` (`site_id`),
   CONSTRAINT `fk_jc_content_type` FOREIGN KEY (`type_id`) REFERENCES `jc_content_type` (`type_id`),
   CONSTRAINT `fk_jc_content_user` FOREIGN KEY (`user_id`) REFERENCES `jc_user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=573 DEFAULT CHARSET=utf8 COMMENT='CMS内容表';
+) ENGINE=InnoDB AUTO_INCREMENT=576 DEFAULT CHARSET=utf8 COMMENT='CMS内容表';
 
 -- ----------------------------
 -- Records of jc_content
 -- ----------------------------
-INSERT INTO `jc_content` VALUES ('567', '70', '1', '1', '1', '1', '2015-07-12 14:31:50', '0', '0', '0', '2', '3', '0', '0', '0', '0');
-INSERT INTO `jc_content` VALUES ('568', '71', '2', '1', '1', '1', '2015-07-12 14:44:47', '0', '0', '0', '2', '3', '0', '0', '0', '0');
+INSERT INTO `jc_content` VALUES ('567', '70', '1', '1', '1', '1', '2015-07-12 14:31:50', '0', '0', '0', '2', '5', '0', '0', '0', '0');
+INSERT INTO `jc_content` VALUES ('568', '71', '2', '1', '1', '1', '2015-07-12 14:44:47', '0', '0', '0', '2', '4', '0', '0', '0', '0');
 INSERT INTO `jc_content` VALUES ('569', '72', '2', '1', '1', '1', '2015-07-12 14:46:57', '0', '0', '0', '2', '3', '0', '0', '0', '0');
-INSERT INTO `jc_content` VALUES ('570', '73', '2', '1', '1', '1', '2015-07-12 14:48:15', '0', '0', '0', '1', '3', '0', '0', '0', '0');
-INSERT INTO `jc_content` VALUES ('571', '70', '1', '1', '1', '1', '2015-07-12 16:01:56', '0', '0', '0', '2', '2', '0', '0', '0', '0');
-INSERT INTO `jc_content` VALUES ('572', '70', '1', '1', '5', '1', '2015-07-12 16:13:02', '0', '0', '0', '2', '6', '0', '0', '0', '0');
+INSERT INTO `jc_content` VALUES ('570', '73', '2', '1', '1', '1', '2015-07-12 14:48:15', '0', '0', '0', '1', '4', '0', '0', '0', '0');
+INSERT INTO `jc_content` VALUES ('571', '70', '1', '1', '1', '1', '2015-07-12 16:01:56', '0', '0', '0', '2', '5', '0', '0', '0', '0');
+INSERT INTO `jc_content` VALUES ('572', '70', '1', '1', '5', '1', '2015-07-12 16:13:02', '0', '0', '0', '3', '8', '0', '0', '0', '0');
+INSERT INTO `jc_content` VALUES ('573', '70', '1', '3', '1', '1', '2015-07-12 23:10:52', '0', '0', '0', '2', '1', '0', '0', '0', '0');
+INSERT INTO `jc_content` VALUES ('574', '71', '1', '3', '1', '1', '2015-07-12 23:12:15', '0', '0', '0', '2', '0', '0', '0', '0', '0');
+INSERT INTO `jc_content` VALUES ('575', '72', '1', '3', '1', '1', '2015-07-12 23:13:42', '0', '0', '0', '2', '2', '0', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for `jc_contenttag`
@@ -725,6 +728,15 @@ INSERT INTO `jc_contenttag` VALUES ('570', '47', '14');
 INSERT INTO `jc_contenttag` VALUES ('570', '48', '15');
 INSERT INTO `jc_contenttag` VALUES ('571', '6', '0');
 INSERT INTO `jc_contenttag` VALUES ('572', '49', '0');
+INSERT INTO `jc_contenttag` VALUES ('573', '50', '0');
+INSERT INTO `jc_contenttag` VALUES ('573', '51', '1');
+INSERT INTO `jc_contenttag` VALUES ('573', '52', '2');
+INSERT INTO `jc_contenttag` VALUES ('574', '53', '0');
+INSERT INTO `jc_contenttag` VALUES ('574', '54', '1');
+INSERT INTO `jc_contenttag` VALUES ('574', '55', '2');
+INSERT INTO `jc_contenttag` VALUES ('575', '53', '0');
+INSERT INTO `jc_contenttag` VALUES ('575', '54', '1');
+INSERT INTO `jc_contenttag` VALUES ('575', '56', '2');
 
 -- ----------------------------
 -- Table structure for `jc_content_attachment`
@@ -784,6 +796,9 @@ INSERT INTO `jc_content_channel` VALUES ('72', '569');
 INSERT INTO `jc_content_channel` VALUES ('73', '570');
 INSERT INTO `jc_content_channel` VALUES ('70', '571');
 INSERT INTO `jc_content_channel` VALUES ('70', '572');
+INSERT INTO `jc_content_channel` VALUES ('70', '573');
+INSERT INTO `jc_content_channel` VALUES ('71', '574');
+INSERT INTO `jc_content_channel` VALUES ('72', '575');
 
 -- ----------------------------
 -- Table structure for `jc_content_check`
@@ -811,6 +826,9 @@ INSERT INTO `jc_content_check` VALUES ('569', '3', null, '0', '1', '2015-07-12 1
 INSERT INTO `jc_content_check` VALUES ('570', '1', null, '0', null, null);
 INSERT INTO `jc_content_check` VALUES ('571', '3', null, '0', null, null);
 INSERT INTO `jc_content_check` VALUES ('572', '3', null, '0', null, null);
+INSERT INTO `jc_content_check` VALUES ('573', '3', null, '0', null, null);
+INSERT INTO `jc_content_check` VALUES ('574', '3', null, '0', null, null);
+INSERT INTO `jc_content_check` VALUES ('575', '3', null, '0', null, null);
 
 -- ----------------------------
 -- Table structure for `jc_content_count`
@@ -842,12 +860,15 @@ CREATE TABLE `jc_content_count` (
 -- ----------------------------
 -- Records of jc_content_count
 -- ----------------------------
-INSERT INTO `jc_content_count` VALUES ('567', '3', '3', '3', '3', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `jc_content_count` VALUES ('568', '3', '3', '3', '3', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `jc_content_count` VALUES ('567', '6', '6', '6', '6', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `jc_content_count` VALUES ('568', '4', '4', '4', '4', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `jc_content_count` VALUES ('569', '3', '3', '3', '3', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `jc_content_count` VALUES ('570', '3', '3', '3', '3', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `jc_content_count` VALUES ('571', '2', '2', '2', '2', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `jc_content_count` VALUES ('572', '6', '6', '6', '6', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `jc_content_count` VALUES ('570', '4', '4', '4', '4', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `jc_content_count` VALUES ('571', '5', '5', '5', '5', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `jc_content_count` VALUES ('572', '8', '8', '8', '8', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `jc_content_count` VALUES ('573', '2', '2', '2', '2', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `jc_content_count` VALUES ('574', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `jc_content_count` VALUES ('575', '2', '2', '2', '2', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for `jc_content_ext`
@@ -885,6 +906,9 @@ INSERT INTO `jc_content_ext` VALUES ('569', '4月14日，海警训练基地为5�
 INSERT INTO `jc_content_ext` VALUES ('570', '2015年3月24日，海南海警一支队在琼州海峡成功救助一名重伤渔民。  姜懿摄', null, null, null, null, '2015年3月24日，海南海警一支队在琼州海峡成功救助一名重伤渔民。  姜懿摄', '2015-07-12 14:48:15', null, null, null, '0', null, null, null, null, null, '1');
 INSERT INTO `jc_content_ext` VALUES ('571', 'test', null, null, null, null, 'tes', '2015-07-12 16:01:56', null, null, null, '0', null, null, null, null, null, '1');
 INSERT INTO `jc_content_ext` VALUES ('572', 'gyrdsgsgfd', null, null, null, null, null, '2015-07-12 16:13:02', null, null, null, '0', null, null, null, null, '/WEB-INF/t/cms/www/default/content/pic_load.html', '1');
+INSERT INTO `jc_content_ext` VALUES ('573', '测试焦点图', null, null, null, null, null, '2015-07-12 23:10:52', null, null, null, '0', null, null, '/u/cms/www/201507/12230905xk9h.jpg', null, null, '1');
+INSERT INTO `jc_content_ext` VALUES ('574', '舰艇 编队 (1)', null, null, null, null, null, '2015-07-12 23:12:15', null, null, null, '0', null, null, '/u/cms/www/201507/12231125u5mx.jpg', null, null, '1');
+INSERT INTO `jc_content_ext` VALUES ('575', '舰艇 编队 (8)', null, null, null, null, null, '2015-07-12 23:13:42', null, null, null, '0', null, null, '/u/cms/www/201507/12231251j3v3.jpg', null, null, '1');
 
 -- ----------------------------
 -- Table structure for `jc_content_group_view`
@@ -934,7 +958,7 @@ CREATE TABLE `jc_content_tag` (
   `ref_counter` int(11) NOT NULL DEFAULT '1' COMMENT '被引用的次数',
   PRIMARY KEY (`tag_id`),
   UNIQUE KEY `ak_tag_name` (`tag_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COMMENT='CMS内容TAG表';
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COMMENT='CMS内容TAG表';
 
 -- ----------------------------
 -- Records of jc_content_tag
@@ -988,6 +1012,13 @@ INSERT INTO `jc_content_tag` VALUES ('46', '姜', '1');
 INSERT INTO `jc_content_tag` VALUES ('47', '懿', '1');
 INSERT INTO `jc_content_tag` VALUES ('48', '摄', '1');
 INSERT INTO `jc_content_tag` VALUES ('49', 'gyrdsgsgfd', '1');
+INSERT INTO `jc_content_tag` VALUES ('50', '测试', '1');
+INSERT INTO `jc_content_tag` VALUES ('51', '焦点', '1');
+INSERT INTO `jc_content_tag` VALUES ('52', '图', '1');
+INSERT INTO `jc_content_tag` VALUES ('53', '舰艇', '2');
+INSERT INTO `jc_content_tag` VALUES ('54', '编队', '2');
+INSERT INTO `jc_content_tag` VALUES ('55', '1', '1');
+INSERT INTO `jc_content_tag` VALUES ('56', '8', '1');
 
 -- ----------------------------
 -- Table structure for `jc_content_topic`
@@ -1029,6 +1060,9 @@ INSERT INTO `jc_content_txt` VALUES ('569', '<p>&nbsp;</p>\r\n<p><img alt=\"\" s
 INSERT INTO `jc_content_txt` VALUES ('570', '<p><img alt=\"\" src=\"/u/cms/www/201507/12144807ksg4.JPG\" style=\"width: 512px; height: 341px;\" /></p>\r\n<p>&nbsp;</p>\r\n<p>2015年3月24日，海南海警一支队在琼州海峡成功救助一名重伤渔民。 &nbsp;姜懿摄.JPG</p>\r\n', null, null, null);
 INSERT INTO `jc_content_txt` VALUES ('571', '<p>testdsafds</p>\r\n', null, null, null);
 INSERT INTO `jc_content_txt` VALUES ('572', '<p>dgfsdgfftryteyh hgfdhgfd</p>\r\n', null, null, null);
+INSERT INTO `jc_content_txt` VALUES ('573', '<p>4月14日，海警训练基地为5名战士举办集体生日会</p>\r\n<p>&nbsp;</p>\r\n<p><img alt=\"\" src=\"/u/cms/www/201507/12231020v17t.jpg\" style=\"width: 512px; height: 341px;\" /></p>\r\n', null, null, null);
+INSERT INTO `jc_content_txt` VALUES ('574', '<p>舰艇 编队 (1)舰艇 编队 (1)</p>\r\n<p><img alt=\"\" src=\"/u/cms/www/201507/12231207dron.jpg\" style=\"width: 512px; height: 341px;\" /></p>\r\n', null, null, null);
+INSERT INTO `jc_content_txt` VALUES ('575', '<p>大本营舰艇 编队 (8)舰艇 编队 (8)舰艇 编队 (8)舰艇 编队 (8)</p>\r\n<p><img alt=\"\" src=\"/u/cms/www/201507/12231332hbzz.jpg\" style=\"width: 512px; height: 341px;\" /></p>\r\n', null, null, null);
 
 -- ----------------------------
 -- Table structure for `jc_content_type`
@@ -1423,6 +1457,9 @@ INSERT INTO `jc_file` VALUES ('/u/cms/www/201309', '201309', '1', null);
 INSERT INTO `jc_file` VALUES ('/u/cms/www/201312/301119254w80.flv', '/u/cms/www/201312/301119254w80.flv', '0', null);
 INSERT INTO `jc_file` VALUES ('/u/cms/www/201507/10210311l6hm.png', '多多号695722967.png', '0', null);
 INSERT INTO `jc_file` VALUES ('/u/cms/www/201507/12160016rn45.jpg', 'DSC_7111.JPG', '1', '571');
+INSERT INTO `jc_file` VALUES ('/u/cms/www/201507/12230905xk9h.jpg', '4月14日，海警训练基地为5名战士举办集体生日会.jpg', '1', '573');
+INSERT INTO `jc_file` VALUES ('/u/cms/www/201507/12231125u5mx.jpg', '舰艇 编队 (1).jpg', '1', '574');
+INSERT INTO `jc_file` VALUES ('/u/cms/www/201507/12231251j3v3.jpg', '舰艇 编队 (8).jpg', '1', '575');
 INSERT INTO `jc_file` VALUES ('/u/cms/www/22093458gynd.jpg', '22093458gynd.jpg', '1', null);
 INSERT INTO `jc_file` VALUES ('/u/cms/www/22093502mmft.jpg', '22093502mmft.jpg', '1', null);
 INSERT INTO `jc_file` VALUES ('/u/cms/www/22093506l8pv.jpg', '22093506l8pv.jpg', '1', null);
@@ -1817,7 +1854,7 @@ CREATE TABLE `jc_log` (
   KEY `fk_jc_log_user` (`user_id`),
   CONSTRAINT `fk_jc_log_site` FOREIGN KEY (`site_id`) REFERENCES `jc_site` (`site_id`),
   CONSTRAINT `fk_jc_log_user` FOREIGN KEY (`user_id`) REFERENCES `jc_user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8 COMMENT='CMS日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8 COMMENT='CMS日志表';
 
 -- ----------------------------
 -- Records of jc_log
@@ -1944,6 +1981,10 @@ INSERT INTO `jc_log` VALUES ('119', '1', null, '1', '2015-07-12 16:46:28', '0:0:
 INSERT INTO `jc_log` VALUES ('120', '1', null, '1', '2015-07-12 16:46:41', '0:0:0:0:0:0:0:1', '/admin/jeecms/login.do', 'login success', null);
 INSERT INTO `jc_log` VALUES ('121', '1', null, '1', '2015-07-12 17:05:48', '0:0:0:0:0:0:0:1', '/admin/portal/login.do', 'login success', null);
 INSERT INTO `jc_log` VALUES ('122', '1', '1', '3', '2015-07-12 17:09:13', '0:0:0:0:0:0:0:1', '/admin/portal/config/o_login_update.do', '修改登录设置', null);
+INSERT INTO `jc_log` VALUES ('123', '1', null, '1', '2015-07-12 21:47:04', '0:0:0:0:0:0:0:1', '/admin/portal/login.do', 'login success', null);
+INSERT INTO `jc_log` VALUES ('124', '1', '1', '3', '2015-07-12 23:10:53', '0:0:0:0:0:0:0:1', '/admin/portal/content/o_save.do', '增加文章', 'id=573;title=测试焦点图');
+INSERT INTO `jc_log` VALUES ('125', '1', '1', '3', '2015-07-12 23:12:15', '0:0:0:0:0:0:0:1', '/admin/portal/content/o_save.do', '增加文章', 'id=574;title=舰艇 编队 (1)');
+INSERT INTO `jc_log` VALUES ('126', '1', '1', '3', '2015-07-12 23:13:43', '0:0:0:0:0:0:0:1', '/admin/portal/content/o_save.do', '增加文章', 'id=575;title=舰艇 编队 (8)');
 
 -- ----------------------------
 -- Table structure for `jc_message`
@@ -2605,7 +2646,7 @@ CREATE TABLE `jc_site_access` (
   PRIMARY KEY (`access_id`),
   KEY `fk_jc_access_site` (`site_id`),
   CONSTRAINT `fk_jc_access_site` FOREIGN KEY (`site_id`) REFERENCES `jc_site` (`site_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='站点访问表';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='站点访问表';
 
 -- ----------------------------
 -- Records of jc_site_access
@@ -2623,6 +2664,11 @@ INSERT INTO `jc_site_access` VALUES ('14', '1E521639F749F6DE3ED003ED66323259', '
 INSERT INTO `jc_site_access` VALUES ('15', 'C09AF397820509949ACF21DDD2B8D991', '1', '16:28:30', '2015-07-12', '0:0:0:0:0:0:0:1', '', '', null, null, 'http://localhost:18080/', 'http://localhost:18080/agencyNews/572.jhtml', '31', '5', 'WinNT', 'chrome 35', '');
 INSERT INTO `jc_site_access` VALUES ('16', 'A383F651D4F58843B3BC920491FD656A', '1', '16:46:00', '2015-07-12', '0:0:0:0:0:0:0:1', '', '', null, null, 'http://localhost:18080/', 'http://localhost:18080/basicNews/568.jhtml', '20', '9', 'WinNT', 'chrome 35', '');
 INSERT INTO `jc_site_access` VALUES ('17', '2A0655AA866C51DAABA22463B7F42DBC', '1', '17:08:13', '2015-07-12', '0:0:0:0:0:0:0:1', '', '直接访问', null, null, 'http://localhost:18080/military/570.jhtml', 'http://localhost:18080/political/index.jhtml', '358', '11', 'WinNT', 'chrome 35', '');
+INSERT INTO `jc_site_access` VALUES ('18', 'CB99781EBD754066F1D2C86ABDB06300', '1', '17:14:52', '2015-07-12', '0:0:0:0:0:0:0:1', '', '', null, null, 'http://localhost:18080/', 'http://localhost:18080/', '0', '1', 'WinNT', 'chrome 35', '');
+INSERT INTO `jc_site_access` VALUES ('19', '815A5B0B06C7FD905990344CBE531031', '1', '21:46:02', '2015-07-12', '0:0:0:0:0:0:0:1', '', '', null, null, 'http://localhost:18080/', 'http://localhost:18080/notice/index.jhtml', '5271', '30', 'WinNT', 'chrome 35', '');
+INSERT INTO `jc_site_access` VALUES ('20', '9EFD633F7C896682F951238B7A248358', '1', '23:19:23', '2015-07-12', '0:0:0:0:0:0:0:1', '', '', null, null, 'http://localhost:18080/', 'http://localhost:18080/', '8', '2', 'WinNT', 'chrome 35', '');
+INSERT INTO `jc_site_access` VALUES ('21', '9FD5E8412514B8241EC98D3D212E5109', '1', '23:21:08', '2015-07-12', '0:0:0:0:0:0:0:1', '', '', null, null, 'http://localhost:18080/', 'http://localhost:18080/', '1231', '17', 'WinNT', 'chrome 35', '');
+INSERT INTO `jc_site_access` VALUES ('22', '7086425F538DA419F9EDEC8572A9976C', '1', '23:54:47', '2015-07-12', '0:0:0:0:0:0:0:1', '', '', null, null, 'http://localhost:18080/', 'http://localhost:18080/', '57', '7', 'WinNT', 'chrome 35', '');
 
 -- ----------------------------
 -- Table structure for `jc_site_access_count`
@@ -2662,7 +2708,7 @@ CREATE TABLE `jc_site_access_pages` (
   `site_id` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`access_pages_id`),
   KEY `fk_jc_access_pages_access` (`session_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=217 DEFAULT CHARSET=utf8 COMMENT='访问详细页面表';
+) ENGINE=InnoDB AUTO_INCREMENT=233 DEFAULT CHARSET=utf8 COMMENT='访问详细页面表';
 
 -- ----------------------------
 -- Records of jc_site_access_pages
@@ -2775,6 +2821,22 @@ INSERT INTO `jc_site_access_pages` VALUES ('213', 'http://localhost:18080/agency
 INSERT INTO `jc_site_access_pages` VALUES ('214', 'http://localhost:18080/political/index.jhtml', '2A0655AA866C51DAABA22463B7F42DBC', '2015-07-12', '17:14:11', '0', '11', '1');
 INSERT INTO `jc_site_access_pages` VALUES ('215', 'http://localhost:18080/military/index.jhtml', '2A0655AA866C51DAABA22463B7F42DBC', '2015-07-12', '17:14:11', '0', '10', '1');
 INSERT INTO `jc_site_access_pages` VALUES ('216', 'http://localhost:18080/agencyNews/571.jhtml', '2A0655AA866C51DAABA22463B7F42DBC', '2015-07-12', '17:13:51', '4', '8', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('217', 'http://localhost:18080/', 'CB99781EBD754066F1D2C86ABDB06300', '2015-07-12', '17:14:52', '0', '1', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('218', 'http://localhost:18080/basicNews/568.jhtml', '815A5B0B06C7FD905990344CBE531031', '2015-07-12', '21:46:45', '2', '7', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('219', 'http://localhost:18080/armyManage/index.jhtml', '815A5B0B06C7FD905990344CBE531031', '2015-07-12', '21:46:54', '2', '14', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('220', 'http://localhost:18080/agencyNews/index.jhtml', '815A5B0B06C7FD905990344CBE531031', '2015-07-12', '22:41:38', '0', '21', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('221', 'http://localhost:18080/notice/575.jhtml', '815A5B0B06C7FD905990344CBE531031', '2015-07-12', '23:13:48', '0', '29', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('222', 'http://localhost:18080/', '9EFD633F7C896682F951238B7A248358', '2015-07-12', '23:19:24', '7', '1', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('223', 'http://localhost:18080/', '9EFD633F7C896682F951238B7A248358', '2015-07-12', '23:19:31', '0', '2', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('224', 'http://localhost:18080/', '9FD5E8412514B8241EC98D3D212E5109', '2015-07-12', '23:23:45', '0', '4', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('225', 'http://localhost:18080/', '9FD5E8412514B8241EC98D3D212E5109', '2015-07-12', '23:41:39', '0', '17', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('226', 'http://localhost:18080/', '7086425F538DA419F9EDEC8572A9976C', '2015-07-12', '23:55:44', '0', '7', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('227', 'http://localhost:18080/', '7086425F538DA419F9EDEC8572A9976C', '2015-07-12', '23:54:54', '13', '2', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('228', 'http://localhost:18080/agencyNews/567.jhtml', '7086425F538DA419F9EDEC8572A9976C', '2015-07-12', '23:55:36', '6', '5', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('229', 'http://localhost:18080/', '7086425F538DA419F9EDEC8572A9976C', '2015-07-12', '23:54:48', '6', '1', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('230', 'http://localhost:18080/agencyNews/index.jhtml', '7086425F538DA419F9EDEC8572A9976C', '2015-07-12', '23:55:42', '2', '6', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('231', 'http://localhost:18080/military/index.jhtml', '7086425F538DA419F9EDEC8572A9976C', '2015-07-12', '23:55:07', '25', '3', '1');
+INSERT INTO `jc_site_access_pages` VALUES ('232', 'http://localhost:18080/agencyNews/573.jhtml', '7086425F538DA419F9EDEC8572A9976C', '2015-07-12', '23:55:32', '4', '4', '1');
 
 -- ----------------------------
 -- Table structure for `jc_site_access_statistic`
@@ -2818,8 +2880,8 @@ CREATE TABLE `jc_site_attr` (
 -- ----------------------------
 -- Records of jc_site_attr
 -- ----------------------------
-INSERT INTO `jc_site_attr` VALUES ('1', 'pvTotal', '359');
-INSERT INTO `jc_site_attr` VALUES ('1', 'visitors', '49');
+INSERT INTO `jc_site_attr` VALUES ('1', 'pvTotal', '392');
+INSERT INTO `jc_site_attr` VALUES ('1', 'visitors', '52');
 
 -- ----------------------------
 -- Table structure for `jc_site_cfg`
@@ -3043,7 +3105,7 @@ CREATE TABLE `jc_user` (
 -- ----------------------------
 -- Records of jc_user
 -- ----------------------------
-INSERT INTO `jc_user` VALUES ('1', '1', 'admin', '', '2011-01-03 00:00:00', '127.0.0.1', '2015-07-12 17:05:48', '0:0:0:0:0:0:0:1', '1061', '9', '258083', '38888', '2015-07-12', '1', '0', '0');
+INSERT INTO `jc_user` VALUES ('1', '1', 'admin', '', '2011-01-03 00:00:00', '127.0.0.1', '2015-07-12 21:47:04', '0:0:0:0:0:0:0:1', '1062', '9', '288293', '69098', '2015-07-12', '1', '0', '0');
 INSERT INTO `jc_user` VALUES ('2', '1', 'test', '', '2015-07-11 16:28:59', '0:0:0:0:0:0:0:1', '2015-07-12 14:45:28', '0:0:0:0:0:0:0:1', '3', '8', '7613', '7613', '2015-07-12', '1', '0', '0');
 
 -- ----------------------------
